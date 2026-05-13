@@ -411,5 +411,30 @@
     });
   </script>
 
+  <!-- Auto Popup Script (Shows enquiry form after 5 seconds) -->
+  <script>
+    // Show the enquiry form as a popup after 5 seconds
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+
+        // Blink the form 6 times
+        const form = document.getElementById('enquiry-form');
+        let count = 0;
+        const blink = setInterval(() => {
+          form.style.boxShadow = count % 2 === 0
+            ? '0 0 25px rgba(201,168,76,0.9)'
+            : '0 10px 30px rgba(0,0,0,0.05)';
+          count++;
+          if (count > 6) {
+            clearInterval(blink);
+            form.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
+          }
+        }, 500);
+      }
+    }, 5000);
+  </script>
+
 </body>
 </html>
