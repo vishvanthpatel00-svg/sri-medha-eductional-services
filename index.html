@@ -405,7 +405,26 @@
         console.error(error);
       } else {
         status.textContent = "Thank you! Your enquiry has been submitted.";
-        status.style.color = "green";
+status.style.color = "green";
+
+const whatsappNumber = "919391226050"; // Replace with your WhatsApp number
+
+const whatsappMessage =
+`New Enquiry from Sri Medha Website
+
+Name: ${enquiry.name}
+Phone: ${enquiry.phone}
+Email: ${enquiry.email}
+Grade: ${enquiry.grade}
+Program: ${enquiry.program}
+Message: ${enquiry.message}`;
+
+const whatsappURL =
+  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+window.open(whatsappURL, "_blank");
+
+form.reset();
         form.reset();
       }
     });
