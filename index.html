@@ -682,4 +682,60 @@ Message: ${enquiry.message}`;
       } else {
         ps.textContent = "Thank you! We'll call you back soon.";
         ps.style.color = "green";
-        const msg = `Quick Callback Request\n\nName: ${name
+        <script>
+async function submitPopup() {
+  const name = document.getElementById("popup-name").value.trim();
+  const phone = document.getElementById("popup-phone").value.trim();
+  const ps = document.getElementById("popup-status");
+
+  if (!name || !phone) {
+    ps.textContent = "Please enter both name and phone number.";
+    ps.style.color = "red";
+    return;
+  }
+
+  ps.textContent = "Submitting...";
+  ps.style.color = "#132241";
+
+  const enquiry = {
+    name: name,
+    phone: phone,
+    email: "",
+    grade: "",
+    program: "Quick Callback",
+    message: "Quick popup callback request"
+  };
+
+  const { error } = await supabaseClient
+    .from("enquiries")
+    .insert([enquiry]);
+
+  if (error) {
+    ps.textContent = "Error: " + error.message;
+    ps.style.color = "red";
+    console.error(error);
+  } else {
+    ps.textContent = "Thank you! We'll call you back soon.";
+    ps.style.color = "green";
+
+    const whatsappNumber = "919391226050";
+    const msg =
+`Quick Callback Request
+
+Name: ${name}
+Phone: ${phone}`;
+
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`,
+      "_blank"
+    );
+
+    document.getElementById("popup-name").value = "";
+    document.getElementById("popup-phone").value = "";
+
+    setTimeout(() => {
+      closePopup();
+    }, 2000);
+  }
+}
+</script>
