@@ -1,319 +1,652 @@
-# `index.html` for Sri Medha Educational Services
+<!--
+ADD THIS SCRIPT BLOCK AT THE END OF YOUR EXISTING index.html
+Replace your current incomplete <script> section with this full script.
 
-Copy and paste the entire code below into your `index.html` file.
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sri Medha Educational Services</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Poppins',sans-serif;background:#f8f8f8;color:#222}
-header{background:#000;color:#fff;padding:60px 20px;text-align:center}
-header h1{font-size:2.5rem;margin-bottom:10px}
-header p{max-width:700px;margin:auto;color:#ddd}
-.programs{margin-top:20px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-.programs span{background:#d4af37;color:#000;padding:8px 14px;border-radius:20px;font-weight:600}
-.btn{display:inline-block;margin-top:20px;background:#d4af37;color:#000;padding:12px 24px;text-decoration:none;border-radius:8px;font-weight:700}
-section{padding:50px 20px}
-.container{max-width:1100px;margin:auto}
-.section-title{text-align:center;margin-bottom:30px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#fff;padding:25px;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,.08);cursor:pointer}
-.card:hover{transform:translateY(-4px)}
-.card h3{margin-bottom:10px}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-.form-card{background:#fff;padding:25px;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,.08)}
-input,textarea,select{width:100%;padding:12px;margin-bottom:12px;border:1px solid #ccc;border-radius:8px}
-button{background:#d4af37;color:#000;border:none;padding:12px 20px;border-radius:8px;font-weight:700;cursor:pointer}
-footer{background:#000;color:#ccc;text-align:center;padding:20px}
-
-/* Modal */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;padding:20px}
-.modal-overlay.active{display:flex;align-items:center;justify-content:center}
-.modal{background:#fff;width:100%;max-width:800px;max-height:90vh;overflow:auto;padding:25px;border-radius:12px;position:relative}
-.close{position:absolute;right:20px;top:15px;font-size:28px;cursor:pointer}
-.college-item{padding:12px;border:1px solid #ddd;border-radius:8px;margin-bottom:10px;cursor:pointer}
-.college-item:hover{background:#f5f5f5}
-#collegeDetail{margin-top:20px;padding:20px;background:#fafafa;border-radius:8px;display:none}
-
-/* Popup */
-.popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;align-items:center;justify-content:center;padding:20px}
-.popup.active{display:flex}
-.popup-box{background:#fff;padding:25px;border-radius:12px;max-width:400px;width:100%;position:relative}
-.popup-close{position:absolute;top:10px;right:15px;font-size:24px;cursor:pointer}
-
-@media(max-width:768px){
-  .contact-grid{grid-template-columns:1fr}
-  header h1{font-size:2rem}
-}
-</style>
-</head>
-<body>
-
-<header>
-  <h1>Sri Medha Educational Services</h1>
-  <p>Admission guidance for top universities across India. Free career counselling and education loan assistance.</p>
-
-  <div class="programs">
-    <span>B.Tech</span><span>BBA</span><span>MBA</span><span>M.Tech</span>
-    <span>MCA</span><span>BCA</span><span>Paramedical</span>
-  </div>
-
-  <a href="#contact" class="btn">Book Free Counselling</a>
-</header>
-
-<section>
-  <div class="container">
-    <h2 class="section-title">Programs We Support</h2>
-    <div class="cards">
-      <div class="card" onclick="openCollegeModal('btech')"><h3>B.Tech</h3><p>Engineering admissions across India.</p></div>
-      <div class="card" onclick="openCollegeModal('bba')"><h3>BBA</h3><p>Business administration programs.</p></div>
-      <div class="card" onclick="openCollegeModal('mba')"><h3>MBA</h3><p>Management admissions.</p></div>
-      <div class="card" onclick="openCollegeModal('mtech')"><h3>M.Tech</h3><p>Postgraduate engineering.</p></div>
-      <div class="card" onclick="openCollegeModal('mca')"><h3>MCA</h3><p>Computer applications.</p></div>
-      <div class="card" onclick="openCollegeModal('bca')"><h3>BCA</h3><p>Computer applications.</p></div>
-      <div class="card" onclick="openCollegeModal('paramedical')"><h3>Paramedical</h3><p>Allied health sciences.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-    <h2 class="section-title">Contact Us</h2>
-    <div class="contact-grid">
-      <div>
-        <p><strong>Phone:</strong> +91 93912 26050</p>
-        <p><strong>Location:</strong> Hyderabad, Telangana</p>
-      </div>
-
-      <form id="enquiry-form" class="form-card">
-        <input id="name" placeholder="Your Name" required>
-        <input id="phone" placeholder="Phone Number" required>
-        <input id="email" placeholder="Email Address">
-        <select id="program">
-          <option value="">Select Program</option>
-          <option>B.Tech</option><option>BBA</option><option>MBA</option>
-          <option>M.Tech</option><option>MCA</option><option>BCA</option>
-          <option>Paramedical</option>
-        </select>
-        <textarea id="message" placeholder="Your Message"></textarea>
-        <button type="submit">Submit Enquiry</button>
-        <p id="status"></p>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>
-  &copy; 2026 Sri Medha Educational Services
-</footer>
-
-<!-- College Modal -->
-<div class="modal-overlay" id="collegeModal">
-  <div class="modal">
-    <span class="close" onclick="closeCollegeModal()">&times;</span>
-    <h2 id="modalTitle"></h2>
-    <div id="collegeList"></div>
-    <div id="collegeDetail"></div>
-  </div>
-</div>
-
-<!-- Popup -->
-<div class="popup" id="quickPopup">
-  <div class="popup-box">
-    <span class="popup-close" onclick="closePopup()">&times;</span>
-    <h3>Get Free Counselling</h3>
-    <input id="popup-name" placeholder="Your Name">
-    <input id="popup-phone" placeholder="Phone Number">
-    <button onclick="submitPopup()">Get Callback</button>
-    <p id="popup-status"></p>
-  </div>
-</div>
+This code:
+1. Shows popup after 10 seconds.
+2. Saves enquiries to Supabase.
+3. Opens WhatsApp with enquiry details.
+4. Shows colleges when any course is clicked.
+5. Displays college details after selecting a college.
+-->
 
 <script>
-// ================= SUPABASE =================
-const SUPABASE_URL = 'YOUR_SUPABASE_URL';
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+/* =========================================================
+   SUPABASE CONFIGURATION
+========================================================= */
+const SUPABASE_URL = "https://lrltkwphwmxexerteplr.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxybHRrd3Bod214ZXhlcnRlcGxyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDAxNTEsImV4cCI6MjA5NDE3NjE1MX0.svyH3kZpD6Me3FjYpwoEsFT6_-g1Bq303_9OjBvr79c"; // Replace with your key
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY
+);
 
-// ================= COLLEGE DATA =================
+/* =========================================================
+   COLLEGE DATA
+========================================================= */
 const collegeData = {
   btech: {
-    title: 'B.Tech Colleges',
-    colleges: [
+    title: "B.Tech Colleges",
+    tg: [
       {
-        name: 'Gurunanak University',
-        location: 'Hyderabad',
-        fees: '₹1.2 Lakhs/year',
-        placements: 'Up to ₹12 LPA',
-        info: 'Leading private university with strong engineering programs.'
+        name: "Gurunanak University",
+        location: "Hyderabad, Telangana",
+        courses: "CSE, ECE, EEE, Mechanical, Civil",
+        fees: "₹1.2 Lakhs / year",
+        placements: "Up to ₹12 LPA",
+        website: "https://www.gnits.ac.in",
+        info: "Leading private university with strong engineering programs and excellent infrastructure."
       },
       {
-        name: 'Amity University',
-        location: 'Hyderabad',
-        fees: '₹2 Lakhs/year',
-        placements: 'Up to ₹15 LPA',
-        info: 'Nationally recognized university with modern campus.'
+        name: "Amity University",
+        location: "Hyderabad",
+        courses: "All major B.Tech branches",
+        fees: "₹2.0 Lakhs / year",
+        placements: "Up to ₹15 LPA",
+        website: "https://www.amity.edu",
+        info: "Well-known national university with modern labs and global exposure."
       },
       {
-        name: 'Woxsen University',
-        location: 'Hyderabad',
-        fees: '₹3.5 Lakhs/year',
-        placements: 'Up to ₹18 LPA',
-        info: 'Known for innovation and entrepreneurship.'
+        name: "Woxsen University",
+        location: "Hyderabad",
+        courses: "Computer Science, AI, Data Science",
+        fees: "₹3.5 Lakhs / year",
+        placements: "Up to ₹18 LPA",
+        website: "https://www.woxsen.edu.in",
+        info: "Premium university known for innovation and entrepreneurship."
       },
       {
-        name: 'VIT Vellore',
-        location: 'Tamil Nadu',
-        fees: '₹2 Lakhs/year',
-        placements: 'Up to ₹60 LPA',
-        info: 'One of India\'s top private engineering universities.'
+        name: "Malla Reddy University",
+        location: "Hyderabad",
+        courses: "All B.Tech branches",
+        fees: "₹1.5 Lakhs / year",
+        placements: "Up to ₹10 LPA",
+        website: "https://www.mallareddyuniversity.ac.in",
+        info: "Popular private university with good placement support."
       },
       {
-        name: 'SRM University',
-        location: 'Chennai',
-        fees: '₹3 Lakhs/year',
-        placements: 'Excellent placements',
-        info: 'Globally recognized private university.'
+        name: "Anurag University",
+        location: "Hyderabad",
+        courses: "CSE, ECE, EEE, Mechanical",
+        fees: "₹1.3 Lakhs / year",
+        placements: "Up to ₹8 LPA",
+        website: "https://anurag.edu.in",
+        info: "One of the reputed engineering universities in Telangana."
+      },
+      {
+        name: "Vignan University",
+        location: "Guntur",
+        courses: "Engineering and Technology",
+        fees: "₹2 Lakhs / year",
+        placements: "Up to ₹12 LPA",
+        website: "https://vignan.ac.in",
+        info: "Known for good academics and placements."
+      },
+      {
+        name: "KL University",
+        location: "Vijayawada",
+        courses: "Engineering, Technology",
+        fees: "₹2.5 Lakhs / year",
+        placements: "Up to ₹20 LPA",
+        website: "https://www.kluniversity.in",
+        info: "Top private university with strong industry ties."
+      },
+      {
+        name: "St. Mary's University",
+        location: "Hyderabad",
+        courses: "B.Tech and Management",
+        fees: "₹1.1 Lakhs / year",
+        placements: "Up to ₹6 LPA",
+        website: "https://stmarysgroup.com",
+        info: "Affordable private university."
+      },
+      {
+        name: "SR University",
+        location: "Warangal",
+        courses: "Engineering and Technology",
+        fees: "₹1.8 Lakhs / year",
+        placements: "Up to ₹14 LPA",
+        website: "https://sru.edu.in",
+        info: "Known for innovative curriculum."
+      },
+      {
+        name: "Sreenidhi University",
+        location: "Hyderabad",
+        courses: "CSE, ECE, IT",
+        fees: "₹1.6 Lakhs / year",
+        placements: "Up to ₹14 LPA",
+        website: "https://www.sreenidhi.edu.in",
+        info: "Highly reputed engineering institution."
+      },
+      {
+        name: "Kavery University",
+        location: "Salem, Tamil Nadu",
+        courses: "Engineering and Technology",
+        fees: "₹1.5 Lakhs / year",
+        placements: "Good placement support",
+        website: "https://kavery.edu.in",
+        info: "Emerging private university."
+      },
+      {
+        name: "Chaitanya University",
+        location: "Warangal",
+        courses: "Engineering and Management",
+        fees: "₹1.2 Lakhs / year",
+        placements: "Up to ₹7 LPA",
+        website: "#",
+        info: "Offers quality education with practical training."
+      },
+      {
+        name: "GITAM University",
+        location: "Visakhapatnam",
+        courses: "All engineering branches",
+        fees: "₹2.4 Lakhs / year",
+        placements: "Up to ₹16 LPA",
+        website: "https://www.gitam.edu",
+        info: "Top-ranked private university in South India."
+      }
+    ],
+    other: [
+      {
+        name: "VIT Vellore University",
+        location: "Vellore, Tamil Nadu",
+        courses: "All B.Tech branches",
+        fees: "₹2 Lakhs / year",
+        placements: "Up to ₹60 LPA",
+        website: "https://vit.ac.in",
+        info: "One of India's top private engineering universities."
+      },
+      {
+        name: "Amrita University",
+        location: "Coimbatore",
+        courses: "Engineering and Technology",
+        fees: "₹2.5 Lakhs / year",
+        placements: "Excellent placements",
+        website: "https://www.amrita.edu",
+        info: "NAAC A++ accredited university."
+      },
+      {
+        name: "SRM University",
+        location: "Chennai",
+        courses: "All engineering branches",
+        fees: "₹3 Lakhs / year",
+        placements: "Up to ₹40 LPA",
+        website: "https://www.srmist.edu.in",
+        info: "Globally recognized private university."
+      },
+      {
+        name: "RV University",
+        location: "Bangalore",
+        courses: "Engineering and Management",
+        fees: "₹3 Lakhs / year",
+        placements: "Strong placement network",
+        website: "https://rvu.edu.in",
+        info: "Backed by RV educational institutions."
+      },
+      {
+        name: "Saveetha University",
+        location: "Chennai",
+        courses: "Engineering and Health Sciences",
+        fees: "₹2 Lakhs / year",
+        placements: "Good placements",
+        website: "https://www.saveetha.com",
+        info: "Reputed deemed university."
+      },
+      {
+        name: "Marwadi University",
+        location: "Rajkot, Gujarat",
+        courses: "Engineering and Management",
+        fees: "₹1.6 Lakhs / year",
+        placements: "Up to ₹10 LPA",
+        website: "https://www.marwadiuniversity.ac.in",
+        info: "Known for student support."
+      },
+      {
+        name: "Sandeep University",
+        location: "Nashik",
+        courses: "Engineering and Technology",
+        fees: "₹1.3 Lakhs / year",
+        placements: "Good industry exposure",
+        website: "https://www.sandipuniversity.edu.in",
+        info: "Modern campus and industry-ready programs."
+      },
+      {
+        name: "Sanjay Ghodawat University",
+        location: "Kolhapur",
+        courses: "Engineering and Technology",
+        fees: "₹1.5 Lakhs / year",
+        placements: "Strong placements",
+        website: "https://sguniversity.ac.in",
+        info: "Rapidly growing private university."
+      },
+      {
+        name: "Sathyabama University",
+        location: "Chennai",
+        courses: "Engineering and Technology",
+        fees: "₹2.2 Lakhs / year",
+        placements: "Excellent placements",
+        website: "https://www.sathyabama.ac.in",
+        info: "Established and reputed university."
+      },
+      {
+        name: "Sharda University",
+        location: "Greater Noida",
+        courses: "Engineering and Management",
+        fees: "₹2 Lakhs / year",
+        placements: "Good placements",
+        website: "https://www.sharda.ac.in",
+        info: "International student-friendly university."
+      },
+      {
+        name: "P.P. Savani University",
+        location: "Surat, Gujarat",
+        courses: "Engineering and Management",
+        fees: "₹1.5 Lakhs / year",
+        placements: "Growing placement record",
+        website: "https://ppsu.ac.in",
+        info: "Modern private university."
+      },
+      {
+        name: "Atmiya University",
+        location: "Rajkot, Gujarat",
+        courses: "Engineering and Technology",
+        fees: "₹1.4 Lakhs / year",
+        placements: "Good placement support",
+        website: "https://atmiyauni.ac.in",
+        info: "NAAC accredited institution."
+      },
+      {
+        name: "Uttaranchal University",
+        location: "Dehradun",
+        courses: "Engineering and Technology",
+        fees: "₹1.7 Lakhs / year",
+        placements: "Up to ₹12 LPA",
+        website: "https://www.uudoon.in",
+        info: "Well-known private university."
+      },
+      {
+        name: "Kalasalingam University",
+        location: "Tamil Nadu",
+        courses: "Engineering and Technology",
+        fees: "₹1.8 Lakhs / year",
+        placements: "Good placement record",
+        website: "https://kalasalingam.ac.in",
+        info: "Reputed engineering-focused university."
       }
     ]
   },
+
   bba: {
-    title: 'BBA Colleges',
-    colleges: [
-      { name: 'Woxsen University', location: 'Hyderabad', fees: '₹4 Lakhs/year', placements: 'Excellent', info: 'Premium management education.' },
-      { name: 'Amity University', location: 'Noida', fees: '₹2 Lakhs/year', placements: 'Strong corporate ties', info: 'Popular BBA program.' }
+    title: "BBA Colleges",
+    tg: [
+      {
+        name: "Woxsen University",
+        location: "Hyderabad",
+        courses: "BBA",
+        fees: "₹4 Lakhs / year",
+        placements: "Excellent placements",
+        website: "https://www.woxsen.edu.in",
+        info: "Premium management education."
+      }
+    ],
+    other: [
+      {
+        name: "Amity University",
+        location: "Noida",
+        courses: "BBA",
+        fees: "₹2 Lakhs / year",
+        placements: "Strong corporate ties",
+        website: "https://www.amity.edu",
+        info: "Popular for management programs."
+      }
     ]
   },
+
   mba: {
-    title: 'MBA Colleges',
-    colleges: [
-      { name: 'ICFAI Business School', location: 'Hyderabad', fees: '₹9 Lakhs total', placements: 'Excellent', info: 'Top business school.' }
+    title: "MBA Colleges",
+    tg: [
+      {
+        name: "ICFAI Business School",
+        location: "Hyderabad",
+        courses: "MBA",
+        fees: "₹9 Lakhs total",
+        placements: "Excellent placements",
+        website: "https://www.ibsindia.org",
+        info: "Top private business school."
+      }
+    ],
+    other: [
+      {
+        name: "SP Jain Institute",
+        location: "Mumbai",
+        courses: "MBA",
+        fees: "₹20 Lakhs total",
+        placements: "Outstanding placements",
+        website: "https://www.spjimr.org",
+        info: "Premier MBA institution."
+      }
     ]
   },
-  mtech: { title: 'M.Tech Colleges', colleges: [{ name: 'JNTUH', location: 'Hyderabad', fees: '₹60,000/year', placements: 'Good', info: 'Top technical university.' }] },
-  mca: { title: 'MCA Colleges', colleges: [{ name: 'Osmania University', location: 'Hyderabad', fees: '₹45,000/year', placements: 'Good', info: 'Prestigious public university.' }] },
-  bca: { title: 'BCA Colleges', colleges: [{ name: 'Jain University', location: 'Bangalore', fees: '₹1.5 Lakhs/year', placements: 'Strong', info: 'Top private university.' }] },
-  paramedical: { title: 'Paramedical Colleges', colleges: [{ name: 'Manipal University', location: 'Karnataka', fees: '₹2 Lakhs/year', placements: 'Excellent', info: 'Top healthcare education provider.' }] }
+
+  mtech: {
+    title: "M.Tech Colleges",
+    tg: [
+      {
+        name: "JNTUH",
+        location: "Hyderabad",
+        courses: "M.Tech",
+        fees: "₹60,000 / year",
+        placements: "Good opportunities",
+        website: "https://jntuh.ac.in",
+        info: "Top technical university."
+      }
+    ],
+    other: [
+      {
+        name: "VIT University",
+        location: "Vellore",
+        courses: "M.Tech",
+        fees: "₹2 Lakhs / year",
+        placements: "Excellent placements",
+        website: "https://vit.ac.in",
+        info: "Top private university."
+      }
+    ]
+  },
+
+  mca: {
+    title: "MCA Colleges",
+    tg: [
+      {
+        name: "Osmania University",
+        location: "Hyderabad",
+        courses: "MCA",
+        fees: "₹45,000 / year",
+        placements: "Good placements",
+        website: "https://www.osmania.ac.in",
+        info: "Prestigious public university."
+      }
+    ],
+    other: [
+      {
+        name: "Christ University",
+        location: "Bangalore",
+        courses: "MCA",
+        fees: "₹1.5 Lakhs / year",
+        placements: "Strong placements",
+        website: "https://christuniversity.in",
+        info: "Well-known for IT education."
+      }
+    ]
+  },
+
+  bca: {
+    title: "BCA Colleges",
+    tg: [
+      {
+        name: "St. Mary's University",
+        location: "Hyderabad",
+        courses: "BCA",
+        fees: "₹60,000 / year",
+        placements: "Good placements",
+        website: "https://stmarysgroup.com",
+        info: "Affordable and quality education."
+      }
+    ],
+    other: [
+      {
+        name: "Jain University",
+        location: "Bangalore",
+        courses: "BCA",
+        fees: "₹1.5 Lakhs / year",
+        placements: "Strong placements",
+        website: "https://www.jainuniversity.ac.in",
+        info: "Top private university."
+      }
+    ]
+  },
+
+  paramedical: {
+    title: "Paramedical Colleges",
+    tg: [
+      {
+        name: "Apollo Institute",
+        location: "Hyderabad",
+        courses: "Allied Health Sciences",
+        fees: "₹80,000 / year",
+        placements: "Hospital tie-ups",
+        website: "#",
+        info: "Industry-oriented paramedical programs."
+      }
+    ],
+    other: [
+      {
+        name: "Manipal University",
+        location: "Karnataka",
+        courses: "Paramedical",
+        fees: "₹2 Lakhs / year",
+        placements: "Excellent opportunities",
+        website: "https://www.manipal.edu",
+        info: "Top healthcare education provider."
+      }
+    ]
+  }
 };
 
-// ================= COLLEGE MODAL =================
+/* =========================================================
+   POPUP AFTER 10 SECONDS
+========================================================= */
+setTimeout(() => {
+  document.getElementById("quickPopup").classList.add("active");
+}, 10000);
+
+function closePopup() {
+  document.getElementById("quickPopup").classList.remove("active");
+}
+
+/* =========================================================
+   QUICK POPUP SUBMISSION
+========================================================= */
+async function submitPopup() {
+  const name = document.getElementById("popup-name").value.trim();
+  const phone = document.getElementById("popup-phone").value.trim();
+  const popupStatus = document.getElementById("popup-status");
+
+  if (!name || !phone) {
+    popupStatus.textContent = "Please enter both name and phone number.";
+    popupStatus.style.color = "red";
+    return;
+  }
+
+  popupStatus.textContent = "Submitting...";
+  popupStatus.style.color = "#132241";
+
+  const enquiry = {
+    name,
+    phone,
+    email: "",
+    grade: "",
+    program: "Quick Callback",
+    message: "Quick popup callback request"
+  };
+
+  const { error } = await supabaseClient.from("enquiries").insert([enquiry]);
+
+  if (error) {
+    popupStatus.textContent = "Error: " + error.message;
+    popupStatus.style.color = "red";
+    return;
+  }
+
+  popupStatus.textContent = "Thank you! We will call you soon.";
+  popupStatus.style.color = "green";
+
+  const whatsappNumber = "919391226050";
+  const whatsappMessage =
+`Quick Callback Request
+
+Name: ${name}
+Phone: ${phone}`;
+
+  window.open(
+    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
+    "_blank"
+  );
+
+  setTimeout(() => {
+    closePopup();
+    document.getElementById("popup-name").value = "";
+    document.getElementById("popup-phone").value = "";
+    popupStatus.textContent = "";
+  }, 1500);
+}
+
+/* =========================================================
+   MAIN ENQUIRY FORM
+========================================================= */
+const form = document.getElementById("enquiry-form");
+const status = document.getElementById("status");
+
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  status.textContent = "Submitting...";
+  status.style.color = "#132241";
+
+  const enquiry = {
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value,
+    email: document.getElementById("email").value,
+    grade: document.getElementById("grade").value,
+    program: document.getElementById("program").value,
+    message: document.getElementById("message").value
+  };
+
+  const { error } = await supabaseClient.from("enquiries").insert([enquiry]);
+
+  if (error) {
+    status.textContent = "Error: " + error.message;
+    status.style.color = "red";
+    return;
+  }
+
+  status.textContent = "Thank you! Your enquiry has been submitted.";
+  status.style.color = "green";
+
+  const whatsappNumber = "919391226050";
+  const whatsappMessage =
+`New Website Enquiry
+
+Name: ${enquiry.name}
+Phone: ${enquiry.phone}
+Email: ${enquiry.email}
+Grade: ${enquiry.grade}
+Program: ${enquiry.program}
+Message: ${enquiry.message}`;
+
+  window.open(
+    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
+    "_blank"
+  );
+
+  form.reset();
+});
+
+/* =========================================================
+   COLLEGE MODAL FUNCTIONS
+========================================================= */
+let currentProgram = null;
+let currentTab = "tg";
+
 function openCollegeModal(programKey) {
+  currentProgram = programKey;
+  currentTab = "tg";
+
   const program = collegeData[programKey];
   if (!program) return;
 
-  document.getElementById('modalTitle').textContent = program.title;
-  document.getElementById('collegeModal').classList.add('active');
+  document.getElementById("modal-program-title").textContent = program.title;
+  document.getElementById("collegeModal").classList.add("active");
 
-  const list = document.getElementById('collegeList');
-  const detail = document.getElementById('collegeDetail');
-  list.innerHTML = '';
-  detail.style.display = 'none';
+  // Reset tabs
+  document.querySelectorAll(".college-tab").forEach(tab => {
+    tab.classList.remove("active");
+  });
+  document.querySelector(".college-tab").classList.add("active");
 
-  program.colleges.forEach(college => {
-    const div = document.createElement('div');
-    div.className = 'college-item';
-    div.textContent = college.name;
-    div.onclick = () => showCollegeDetail(college);
-    list.appendChild(div);
+  showCollegeList();
+  renderCollegeList();
+}
+
+function closeCollegeModal() {
+  document.getElementById("collegeModal").classList.remove("active");
+}
+
+function switchTab(tab, button) {
+  currentTab = tab;
+
+  document.querySelectorAll(".college-tab").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  button.classList.add("active");
+  renderCollegeList();
+}
+
+function renderCollegeList() {
+  const list = document.getElementById("college-list");
+  list.innerHTML = "";
+
+  const colleges = collegeData[currentProgram][currentTab];
+
+  colleges.forEach((college, index) => {
+    const item = document.createElement("div");
+    item.className = "college-item";
+    item.innerHTML = `
+      <span>${college.name}</span>
+      <small>View Details</small>
+    `;
+    item.onclick = () => showCollegeDetail(college);
+    list.appendChild(item);
   });
 }
 
 function showCollegeDetail(college) {
-  const detail = document.getElementById('collegeDetail');
-  detail.style.display = 'block';
-  detail.innerHTML = `
-    <h3>${college.name}</h3>
-    <p><strong>Location:</strong> ${college.location}</p>
-    <p><strong>Fees:</strong> ${college.fees}</p>
-    <p><strong>Placements:</strong> ${college.placements}</p>
-    <p><strong>About:</strong> ${college.info}</p>
+  document.getElementById("college-list-view").style.display = "none";
+  document.getElementById("college-detail-view").classList.add("active");
+
+  document.getElementById("detail-college-name").textContent = college.name;
+
+  document.getElementById("detail-table").innerHTML = `
+    <tr><td>Location</td><td>${college.location}</td></tr>
+    <tr><td>Courses Offered</td><td>${college.courses}</td></tr>
+    <tr><td>Approx. Fees</td><td>${college.fees}</td></tr>
+    <tr><td>Placements</td><td>${college.placements}</td></tr>
+    <tr><td>About</td><td>${college.info}</td></tr>
+    <tr>
+      <td>Website</td>
+      <td><a href="${college.website}" target="_blank">Visit Official Website</a></td>
+    </tr>
   `;
 }
 
-function closeCollegeModal() {
-  document.getElementById('collegeModal').classList.remove('active');
+function showCollegeList() {
+  document.getElementById("college-list-view").style.display = "block";
+  document.getElementById("college-detail-view").classList.remove("active");
 }
 
-// ================= CONTACT FORM =================
-document.getElementById('enquiry-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const status = document.getElementById('status');
-  status.textContent = 'Submitting...';
-
-  const enquiry = {
-    name: name.value,
-    phone: phone.value,
-    email: email.value,
-    program: program.value,
-    message: message.value
-  };
-
-  try {
-    await supabaseClient.from('enquiries').insert([enquiry]);
-    status.textContent = 'Enquiry submitted successfully.';
-
-    const msg = `New Enquiry%0AName: ${enquiry.name}%0APhone: ${enquiry.phone}%0AProgram: ${enquiry.program}`;
-    window.open(`https://wa.me/919391226050?text=${msg}`, '_blank');
-
-    this.reset();
-  } catch (err) {
-    status.textContent = 'Error submitting enquiry.';
+/* =========================================================
+   CLOSE MODAL ON OUTSIDE CLICK
+========================================================= */
+document.getElementById("collegeModal").addEventListener("click", function (e) {
+  if (e.target === this) {
+    closeCollegeModal();
   }
 });
 
-// ================= POPUP =================
-setTimeout(() => {
-  document.getElementById('quickPopup').classList.add('active');
-}, 10000);
-
-function closePopup() {
-  document.getElementById('quickPopup').classList.remove('active');
-}
-
-async function submitPopup() {
-  const name = document.getElementById('popup-name').value;
-  const phone = document.getElementById('popup-phone').value;
-
-  if (!name || !phone) return;
-
-  const msg = `Callback Request%0AName: ${name}%0APhone: ${phone}`;
-  window.open(`https://wa.me/919391226050?text=${msg}`, '_blank');
-
-  closePopup();
-}
-
-// Close modal when clicking outside
-window.onclick = function(e) {
-  if (e.target === document.getElementById('collegeModal')) closeCollegeModal();
-  if (e.target === document.getElementById('quickPopup')) closePopup();
-}
+document.getElementById("quickPopup").addEventListener("click", function (e) {
+  if (e.target === this) {
+    closePopup();
+  }
+});
 </script>
-
-</body>
-</html>
-```
-
-## Before Publishing
-
-Replace these two values in the script:
-
-* `YOUR_SUPABASE_URL`
-* `YOUR_SUPABASE_ANON_KEY`
-
-## What This Website Does
-
-* Shows all your courses.
-* Opens a list of colleges when a course is clicked.
-* Displays college details such as fees, placements, and description.
-* Shows a popup after 10 seconds asking for name and phone number.
-* Saves enquiries to Supabase.
-* Sends enquiry details to your WhatsApp number.
