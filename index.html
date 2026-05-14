@@ -659,30 +659,7 @@ Message: ${enquiry.message}`;
       document.getElementById('quickPopup').classList.remove('active');
     }
 
-    async function submitPopup() {
-      const name = document.getElementById('popup-name').value.trim();
-      const phone = document.getElementById('popup-phone').value.trim();
-      const ps = document.getElementById('popup-status');
-
-      if (!name || !phone) {
-        ps.textContent = "Please enter both name and phone number.";
-        ps.style.color = "red";
-        return;
-      }
-
-      ps.textContent = "Submitting...";
-      ps.style.color = "#132241";
-
-      const enquiry = { name, phone, email: '', grade: '', program: 'Quick Callback', message: 'Quick popup callback request' };
-      const { error } = await supabaseClient.from("enquiries").insert([enquiry]);
-
-      if (error) {
-        ps.textContent = "Error: " + error.message;
-        ps.style.color = "red";
-      } else {
-        ps.textContent = "Thank you! We'll call you back soon.";
-        ps.style.color = "green";
-        <script>
+    <script>
 async function submitPopup() {
   const name = document.getElementById("popup-name").value.trim();
   const phone = document.getElementById("popup-phone").value.trim();
