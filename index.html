@@ -967,10 +967,15 @@ Message: ${enquiry.message}`;
     let currentProgram = null;
     let currentTab = 'tg';
 
-    function openCollegeModal(programKey) {
+   // REPLACE your existing openCollegeModal() function with this exact code
+
+function openCollegeModal(programKey) {
+  console.log("Opening modal for:", programKey); // Debug
+
   currentProgram = programKey;
 
-  const label = {
+  // Program labels
+  const labelMap = {
     btech: "B.Tech",
     bba: "BBA",
     mba: "MBA",
@@ -978,42 +983,51 @@ Message: ${enquiry.message}`;
     mca: "MCA",
     bca: "BCA",
     paramedical: "Paramedical"
-  }[programKey];
+  };
 
-  document.getElementById('modal-program-title').textContent =
-    label + " Colleges";
+  // Set modal title
+  const titleElement = document.getElementById("modal-program-title");
+  if (titleElement) {
+    titleElement.textContent = (labelMap[programKey] || "Program") + " Colleges";
+  }
 
-  const tabsContainer = document.querySelector('.college-tabs');
+  // Get tabs container
+  const tabsContainer = document.querySelector(".college-tabs");
+  if (!tabsContainer) {
+    console.error("Tabs container not found");
+    return;
+  }
 
-  // Show Hyderabad Colleges tab only for B.Tech
-  if (programKey === 'btech') {
+  // Show Hyderabad tab only for B.Tech
+  if (programKey === "btech") {
     tabsContainer.innerHTML = `
-      <button class="college-tab active" onclick="switchTab('hyd', this)">
-        Hyderabad Colleges
-      </button>
-      <button class="college-tab" onclick="switchTab('tg', this)">
-        TG Universities
-      </button>
-      <button class="college-tab" onclick="switchTab('other', this)">
-        Other State Universities
-      </button>
+      <button class="college-tab active" onclick="switchTab('hyd', this)">Hyderabad Colleges</button>
+      <button class="college-tab" onclick="switchTab('tg', this)">TG Universities</button>
+      <button class="college-tab" onclick="switchTab('other', this)">Other State Universities</button>
     `;
-
-    currentTab = 'hyd';
-    renderCollegeList('hyd');
+    currentTab = "hyd";
   } else {
     tabsContainer.innerHTML = `
-      <button class="college-tab active" onclick="switchTab('tg', this)">
-        TG Universities
-      </button>
-      <button class="college-tab" onclick="switchTab('other', this)">
-        Other State Universities
-      </button>
+      <button class="college-tab active" onclick="switchTab('tg', this)">TG Universities</button>
+      <button class="college-tab" onclick="switchTab('other', this)">Other State Universities</button>
     `;
-
-    currentTab = 'tg';
-    renderCollegeList('tg');
+    currentTab = "tg";
   }
+
+  // Render college list
+  renderCollegeList(currentTab);
+
+  // Show modal
+  const listView = document.getElementById("college-list-view");
+  const detailView = document.getElementById("college-detail-view");
+  const modal = document.getElementById("collegeModal");
+
+  if (listView) listView.style.display = "block";
+  if (detailView) detailView.classList.remove("active");
+  if (modal) modal.classList.add("active");
+
+  console.log("Modal opened successfully");
+}
 
   document.getElementById('college-list-view').style.display = 'block';
   document.getElementById('college-detail-view').classList.remove('active');
