@@ -30,16 +30,18 @@
       line-height: 1.6;
     }
 
+    /* ===== NAV ===== */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(11,20,38,0.95);
-      padding: 1rem 5%;
+      background: rgba(11,20,38,0.97);
+      padding: 0 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
+      height: 60px;
     }
 
     .logo {
@@ -48,21 +50,67 @@
       font-size: 1.4rem;
       font-weight: 700;
     }
-
     .logo span { color: var(--gold); }
 
+    /* Desktop nav links */
     .nav-links {
       display: flex;
       list-style: none;
       gap: 1.5rem;
     }
-
     .nav-links a {
       color: white;
       text-decoration: none;
       font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* Hamburger button — hidden on desktop */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s;
     }
 
+    /* Mobile drawer */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: rgba(11,20,38,0.98);
+      z-index: 999;
+      flex-direction: column;
+      padding: 1rem 5%;
+      gap: 0;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* ===== HERO ===== */
     .hero {
       min-height: 100vh;
       background: linear-gradient(135deg, var(--deep), var(--navy));
@@ -71,9 +119,8 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 120px 5% 80px;
+      padding: 100px 5% 80px;
     }
-
     .hero-content { max-width: 860px; }
 
     .hero h1 {
@@ -82,7 +129,6 @@
       margin-bottom: 1rem;
       line-height: 1.1;
     }
-
     .hero h1 span { color: var(--gold); }
 
     .hero-quote {
@@ -111,7 +157,6 @@
       gap: 0.5rem;
       margin-bottom: 2rem;
     }
-
     .hero-programs span {
       background: rgba(255,255,255,0.1);
       border: 1px solid rgba(255,255,255,0.25);
@@ -141,19 +186,18 @@
       margin-bottom: 1rem;
       color: var(--deep);
     }
-
     .section-intro {
       color: var(--muted);
       max-width: 700px;
       margin-bottom: 3rem;
     }
 
+    /* ===== CARDS ===== */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1.5rem;
     }
-
     .card {
       background: white;
       padding: 2rem;
@@ -163,13 +207,11 @@
       transition: transform 0.2s, box-shadow 0.2s;
       border: 2px solid transparent;
     }
-
     .card:hover {
       transform: translateY(-4px);
       box-shadow: 0 18px 40px rgba(0,0,0,0.12);
       border-color: var(--gold);
     }
-
     .card h3 { margin-bottom: 0.5rem; color: var(--deep); }
     .card p { color: var(--muted); font-size: 0.9rem; }
     .card .view-colleges {
@@ -179,7 +221,7 @@
       color: var(--gold);
     }
 
-    /* Modal */
+    /* ===== COLLEGE MODAL ===== */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -219,7 +261,6 @@
       color: var(--deep);
       margin-bottom: 0.3rem;
     }
-
     .modal .modal-subtitle {
       color: var(--gold);
       font-size: 0.9rem;
@@ -227,14 +268,12 @@
       margin-bottom: 1rem;
     }
 
-    /* College tabs */
     .college-tabs {
       display: flex;
       gap: 0.5rem;
       margin-bottom: 1.2rem;
       flex-wrap: wrap;
     }
-
     .college-tab {
       padding: 0.4rem 1rem;
       border-radius: 50px;
@@ -246,7 +285,6 @@
       cursor: pointer;
       font-family: inherit;
     }
-
     .college-tab.active {
       background: var(--gold);
       color: var(--deep);
@@ -257,7 +295,6 @@
       flex-direction: column;
       gap: 0.6rem;
     }
-
     .college-item {
       padding: 0.8rem 1.2rem;
       border: 1px solid #eee;
@@ -268,7 +305,6 @@
       justify-content: space-between;
       transition: background 0.15s, border-color 0.15s;
     }
-
     .college-item:hover { background: var(--cream); border-color: var(--gold); }
     .college-item span { font-weight: 500; color: var(--deep); }
     .college-item small { color: var(--muted); font-size: 0.8rem; }
@@ -281,14 +317,12 @@
       padding: 1.5rem;
     }
     .college-detail.active { display: block; }
-
     .college-detail h4 {
       font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
       color: var(--deep);
       margin-bottom: 1rem;
     }
-
     .college-detail table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
     .college-detail table tr td { padding: 0.45rem 0.5rem; vertical-align: top; }
     .college-detail table tr td:first-child { font-weight: 600; color: var(--navy); width: 38%; }
@@ -306,7 +340,7 @@
       gap: 0.3rem;
     }
 
-    /* Contact */
+    /* ===== CONTACT ===== */
     .contact { background: white; }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
     .contact-info p { margin-bottom: 1rem; color: var(--muted); }
@@ -317,7 +351,6 @@
       border-radius: 16px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
-
     .form-group { margin-bottom: 1rem; }
     .form-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; color: var(--deep); }
     .form-group input,
@@ -343,10 +376,9 @@
       cursor: pointer;
       font-size: 1rem;
     }
-
     #status { margin-top: 1rem; font-weight: 600; }
 
-    /* Popup */
+    /* ===== POPUP ===== */
     .popup-overlay {
       display: none;
       position: fixed;
@@ -369,7 +401,6 @@
       position: relative;
       box-shadow: 0 30px 80px rgba(0,0,0,0.3);
     }
-
     .popup-box .popup-close {
       position: absolute;
       top: 1rem; right: 1.2rem;
@@ -379,16 +410,13 @@
       border: none;
       color: var(--muted);
     }
-
     .popup-box h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
       color: var(--deep);
       margin-bottom: 0.4rem;
     }
-
     .popup-box p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
-
     .popup-box input {
       width: 100%;
       padding: 0.75rem 1rem;
@@ -398,7 +426,6 @@
       margin-bottom: 0.8rem;
       font-size: 1rem;
     }
-
     .popup-box button.popup-submit {
       width: 100%;
       background: linear-gradient(135deg, var(--gold), var(--gold-light));
@@ -410,7 +437,6 @@
       cursor: pointer;
       font-size: 1rem;
     }
-
     #popup-status { margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem; }
 
     footer {
@@ -420,24 +446,43 @@
       padding: 2rem;
     }
 
+    /* ===== MOBILE ===== */
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .hamburger { display: flex; }
       .contact-grid, .form-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav>
     <div class="logo">Sri <span>Medha</span></div>
+
+    <!-- Desktop links -->
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
       <li><a href="#courses">Courses</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">About</a></li>
     </ul>
+
+    <!-- Hamburger for mobile -->
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
+  <!-- Mobile drawer -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#courses" onclick="closeMenu()">Courses</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="#about" onclick="closeMenu()">About</a>
+  </div>
+
+  <!-- PAGE 1: Hero -->
   <section class="hero" id="home">
     <div class="hero-content">
       <div class="hero-quote">"Admission to All Over India Colleges"</div>
@@ -448,19 +493,11 @@
         <span>M.Tech</span><span>MCA</span><span>BCA</span>
         <span>Paramedical</span>
       </div>
-      <a href="#contact" class="btn">Book Free Counselling</a>
+      <a href="#courses" class="btn">Explore Programs</a>
     </div>
   </section>
 
-  <section id="about">
-    <div class="container">
-      <h2>About Us</h2>
-      <p class="section-intro">
-        Sri Medha Educational Services helps students choose the right course and college based on their academic goals — across all states of India.
-      </p>
-    </div>
-  </section>
-
+  <!-- PAGE 2: Courses -->
   <section id="courses">
     <div class="container">
       <h2>Programs We Support</h2>
@@ -505,6 +542,7 @@
     </div>
   </section>
 
+  <!-- PAGE 3: Contact -->
   <section class="contact" id="contact">
     <div class="container">
       <h2>Get in Touch</h2>
@@ -559,6 +597,16 @@
     </div>
   </section>
 
+  <!-- PAGE 4: About -->
+  <section id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p class="section-intro">
+        Sri Medha Educational Services helps students choose the right course and college based on their academic goals — across all states of India. We offer free career counselling and education loan assistance.
+      </p>
+    </div>
+  </section>
+
   <footer>
     <p>&copy; 2026 Sri Medha Educational Services. All rights reserved.</p>
   </footer>
@@ -605,6 +653,14 @@
     const SUPABASE_URL = "https://lrltkwphwmxexerteplr.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxybHRrd3Bod214ZXhlcnRlcGxyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDAxNTEsImV4cCI6MjA5NDE3NjE1MX0.svyH3kZpD6Me3FjYpwoEsFT6_-g1Bq303_9OjBvr79c";
     const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // ===== HAMBURGER MENU =====
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
 
     // ===== MAIN ENQUIRY FORM =====
     const form = document.getElementById("enquiry-form");
@@ -659,60 +715,176 @@ Message: ${enquiry.message}`;
       document.getElementById('quickPopup').classList.remove('active');
     }
 
-    
-async function submitPopup() {
-  const name = document.getElementById("popup-name").value.trim();
-  const phone = document.getElementById("popup-phone").value.trim();
-  const ps = document.getElementById("popup-status");
+    async function submitPopup() {
+      const name = document.getElementById("popup-name").value.trim();
+      const phone = document.getElementById("popup-phone").value.trim();
+      const ps = document.getElementById("popup-status");
 
-  if (!name || !phone) {
-    ps.textContent = "Please enter both name and phone number.";
-    ps.style.color = "red";
-    return;
-  }
+      if (!name || !phone) {
+        ps.textContent = "Please enter both name and phone number.";
+        ps.style.color = "red";
+        return;
+      }
 
-  ps.textContent = "Submitting...";
-  ps.style.color = "#132241";
+      ps.textContent = "Submitting...";
+      ps.style.color = "#132241";
 
-  const enquiry = {
-    name: name,
-    phone: phone,
-    email: "",
-    grade: "",
-    program: "Quick Callback",
-    message: "Quick popup callback request"
-  };
+      const enquiry = {
+        name, phone, email: "", grade: "",
+        program: "Quick Callback",
+        message: "Quick popup callback request"
+      };
 
-  const { error } = await supabaseClient
-    .from("enquiries")
-    .insert([enquiry]);
+      const { error } = await supabaseClient.from("enquiries").insert([enquiry]);
 
-  if (error) {
-    ps.textContent = "Error: " + error.message;
-    ps.style.color = "red";
-    console.error(error);
-  } else {
-    ps.textContent = "Thank you! We'll call you back soon.";
-    ps.style.color = "green";
+      if (error) {
+        ps.textContent = "Error: " + error.message;
+        ps.style.color = "red";
+        console.error(error);
+      } else {
+        ps.textContent = "Thank you! We'll call you back soon.";
+        ps.style.color = "green";
 
-    const whatsappNumber = "919391226050";
-    const msg =
-`Quick Callback Request
+        const msg = `Quick Callback Request\n\nName: ${name}\nPhone: ${phone}`;
+        window.open(`https://wa.me/919391226050?text=${encodeURIComponent(msg)}`, "_blank");
 
-Name: ${name}
-Phone: ${phone}`;
+        document.getElementById("popup-name").value = "";
+        document.getElementById("popup-phone").value = "";
+        setTimeout(() => closePopup(), 2000);
+      }
+    }
 
-    window.open(
-      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`,
-      "_blank"
-    );
+    // ===== COLLEGE DATA (from image) =====
+    const tgColleges = [
+      { name: "Gurunanak University",      location: "Hyderabad, Telangana",  type: "Private University" },
+      { name: "Amity University",          location: "Hyderabad, Telangana",  type: "Private University" },
+      { name: "Woxsen University",         location: "Hyderabad, Telangana",  type: "Private University" },
+      { name: "Mallareddy University",     location: "Hyderabad, Telangana",  type: "Private University (3 campuses)" },
+      { name: "Anurag University",         location: "Hyderabad, Telangana",  type: "Private University" },
+      { name: "Vignan University",         location: "Hyderabad, Telangana",  type: "Deemed University" },
+      { name: "KL University",             location: "Hyderabad, Telangana",  type: "Deemed University (2 campuses)" },
+      { name: "St. Marys University",      location: "Hyderabad, Telangana",  type: "Private University" },
+      { name: "Tech Mahindra University",  location: "Hyderabad, Telangana",  type: "Private University" },
+      { name: "SR University",             location: "Warangal, Telangana",   type: "Private University" },
+      { name: "Sreenidhi University",      location: "Hyderabad, Telangana",  type: "Private University" },
+      { name: "Kavery University",         location: "Hyderabad, Telangana",  type: "Private University" },
+      { name: "Chaitanya University",      location: "Hyderabad, Telangana",  type: "Private University" },
+      { name: "GITAM University",          location: "Hyderabad, Telangana",  type: "Deemed University" }
+    ];
 
-    document.getElementById("popup-name").value = "";
-    document.getElementById("popup-phone").value = "";
+    const otherColleges = [
+      { name: "VIT Vellore University",        location: "Chennai, Tamil Nadu",        type: "Deemed University" },
+      { name: "Amrita University",             location: "Multiple Campuses (4)",      type: "Deemed University" },
+      { name: "SRM University",                location: "Chennai, Tamil Nadu",        type: "Deemed University" },
+      { name: "RV University",                 location: "Bengaluru, Karnataka",       type: "Private University" },
+      { name: "Saveetha University",           location: "Chennai, Tamil Nadu",        type: "Deemed University" },
+      { name: "Marvadi University",            location: "Gujarat",                    type: "Private University" },
+      { name: "Sandeep University",            location: "Nashik, Maharashtra",        type: "Private University" },
+      { name: "Sanjay Ghodawat University",    location: "Maharashtra",               type: "Private University" },
+      { name: "Sathyabama University",         location: "Chennai, Tamil Nadu",        type: "Deemed University" },
+      { name: "Sharda University",             location: "Greater Noida (2 campuses)", type: "Private University" },
+      { name: "P P Savani University",         location: "Gujarat",                    type: "Private University" },
+      { name: "Atmiya University",             location: "Gujarat",                    type: "Private University" },
+      { name: "Uttaranchal University",        location: "Dehradun, Uttarakhand",      type: "Private University" },
+      { name: "Kalasalingam University",       location: "Tamil Nadu",                 type: "Deemed University" }
+    ];
 
-    setTimeout(() => {
-      closePopup();
-    }, 2000);
-  }
-}
-</script>
+    // Program-specific specialities for detail view
+    const programSpeciality = {
+      btech:      "B.Tech Engineering Programs",
+      bba:        "Bachelor of Business Administration",
+      mba:        "Master of Business Administration",
+      mtech:      "M.Tech Postgraduate Engineering",
+      mca:        "Master of Computer Applications",
+      bca:        "Bachelor of Computer Applications",
+      paramedical:"Paramedical & Allied Health Sciences"
+    };
+
+    let currentProgram = null;
+    let currentTab = 'tg';
+
+    function openCollegeModal(programKey) {
+      currentProgram = programKey;
+      currentTab = 'tg';
+
+      const label = {
+        btech: "B.Tech", bba: "BBA", mba: "MBA",
+        mtech: "M.Tech", mca: "MCA", bca: "BCA", paramedical: "Paramedical"
+      }[programKey];
+
+      document.getElementById('modal-program-title').textContent = label + " Colleges";
+
+      // Reset tabs
+      document.querySelectorAll('.college-tab').forEach((t, i) => {
+        t.classList.toggle('active', i === 0);
+      });
+
+      renderCollegeList('tg');
+      document.getElementById('college-list-view').style.display = 'block';
+      document.getElementById('college-detail-view').classList.remove('active');
+      document.getElementById('collegeModal').classList.add('active');
+    }
+
+    function switchTab(tab, btn) {
+      currentTab = tab;
+      document.querySelectorAll('.college-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      renderCollegeList(tab);
+      document.getElementById('college-detail-view').classList.remove('active');
+      document.getElementById('college-list-view').style.display = 'block';
+    }
+
+    function renderCollegeList(tab) {
+      const colleges = tab === 'tg' ? tgColleges : otherColleges;
+      const list = document.getElementById('college-list');
+      list.innerHTML = '';
+      colleges.forEach((c, i) => {
+        const item = document.createElement('div');
+        item.className = 'college-item';
+        item.innerHTML = `<span>${c.name}</span><small>${c.location}</small>`;
+        item.onclick = () => showCollegeDetail(i);
+        list.appendChild(item);
+      });
+    }
+
+    function closeCollegeModal() {
+      document.getElementById('collegeModal').classList.remove('active');
+    }
+
+    function showCollegeList() {
+      document.getElementById('college-list-view').style.display = 'block';
+      document.getElementById('college-detail-view').classList.remove('active');
+    }
+
+    function showCollegeDetail(index) {
+      const colleges = currentTab === 'tg' ? tgColleges : otherColleges;
+      const c = colleges[index];
+      document.getElementById('detail-college-name').textContent = c.name;
+
+      const rows = [
+        ["Location",       c.location],
+        ["University Type", c.type],
+        ["Program Offered", programSpeciality[currentProgram]],
+        ["Counselling",    "Free Career Counselling Available"],
+        ["Loan Assistance","Education Loan Assistance Available"],
+        ["Contact Us",     "+91 93912 26050"]
+      ];
+
+      document.getElementById('detail-table').innerHTML = rows.map(([k, v]) =>
+        `<tr><td>${k}</td><td>${v}</td></tr>`
+      ).join('');
+
+      document.getElementById('college-list-view').style.display = 'none';
+      document.getElementById('college-detail-view').classList.add('active');
+    }
+
+    document.getElementById('collegeModal').addEventListener('click', function(e) {
+      if (e.target === this) closeCollegeModal();
+    });
+    document.getElementById('quickPopup').addEventListener('click', function(e) {
+      if (e.target === this) closePopup();
+    });
+  </script>
+
+</body>
+</html>
