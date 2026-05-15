@@ -892,32 +892,35 @@ Message: ${enquiry.message}`;
 
     // ===== COLLEGE DATA =====
     const hydColleges = [
-      { name: "CBIT",                            location: "Hyderabad, Telangana", type: "Autonomous College",  quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "VASAVI",                          location: "Hyderabad, Telangana", type: "Autonomous College",  quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "VNR Vignan Jyothi",               location: "Hyderabad, Telangana", type: "Autonomous College",  quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "Goka Raju Ranga Raju (GRRR)",     location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "KMIT & Group (NGIT-KMEC-KMCE)",   location: "Hyderabad, Telangana", type: "Group of Colleges",   quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "G. Narayanamma (Women)",           location: "Hyderabad, Telangana", type: "Women's College",     quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "MGIT",                            location: "Hyderabad, Telangana", type: "Autonomous College",  quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "BVRIT (Co-Ed) Narsapur",          location: "Narsapur, Telangana",  type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "Srinidhi",                        location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "MVSR",                            location: "Hyderabad, Telangana", type: "Autonomous College",  quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "Vardhaman",                       location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "CVR",                             location: "Hyderabad, Telangana", type: "Autonomous College",  quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "BVRIT (Women) Bachupally",        location: "Hyderabad, Telangana", type: "Women's College",     quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "Matrusri",                        location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "Vidya Jyothi",                    location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "VBIT",                            location: "Hyderabad, Telangana", type: "Autonomous College",  quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "ACE",                             location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "Guru Nanak",                      location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "Sri Indu",                        location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "Stanley (Women)",                 location: "Hyderabad, Telangana", type: "Women's College",     quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
-      { name: "Srinidhi University",             location: "Hyderabad, Telangana", type: "Private University",  quota: "Management | B.Cat & NRI Quota" },
-      { name: "Malla Reddy University",          location: "Hyderabad, Telangana", type: "Private University",  quota: "Management | B.Cat & NRI Quota" },
-      { name: "Guru Nanak University",           location: "Hyderabad, Telangana", type: "Private University",  quota: "Management | B.Cat & NRI Quota" }
-    ];
+  { name: "CBIT", location: "Hyderabad, Telangana", type: "Autonomous College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "VASAVI", location: "Hyderabad, Telangana", type: "Autonomous College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "VNR Vignan Jyothi", location: "Hyderabad, Telangana", type: "Autonomous College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "Goka Raju Ranga Raju (GRRR)", location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "KMIT & Group (NGIT-KMEC-KMCE)", location: "Hyderabad, Telangana", type: "Group of Colleges", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "G. Narayanamma (Women)", location: "Hyderabad, Telangana", type: "Women's College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "MGIT", location: "Hyderabad, Telangana", type: "Autonomous College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "BVRIT (Co-Ed) Narsapur", location: "Narsapur, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "Srinidhi", location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "MVSR", location: "Hyderabad, Telangana", type: "Autonomous College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "Vardhaman", location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "CVR", location: "Hyderabad, Telangana", type: "Autonomous College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "BVRIT (Women) Bachupally", location: "Hyderabad, Telangana", type: "Women's College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "Matrusri", location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "Vidya Jyothi", location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "VBIT", location: "Hyderabad, Telangana", type: "Autonomous College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "ACE", location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "Guru Nanak", location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "Sri Indu", location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "Stanley (Women)", location: "Hyderabad, Telangana", type: "Women's College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+  { name: "Srinidhi University", location: "Hyderabad, Telangana", type: "Private University", quota: "Management | B.Cat & NRI Quota" },
+  { name: "Malla Reddy University", location: "Hyderabad, Telangana", type: "Private University", quota: "Management | B.Cat & NRI Quota" },
+  { name: "Guru Nanak University", location: "Hyderabad, Telangana", type: "Private University", quota: "Management | B.Cat & NRI Quota" }
+ ];
+   
+      
     
-    const tguniversity = [
+    
+    const tgcolleges = [
       { name: "Gurunanak University",     location: "Hyderabad, Telangana", type: "Private University" },
       { name: "Amity University",         location: "Hyderabad, Telangana", type: "Private University" },
       { name: "Woxsen University",        location: "Hyderabad, Telangana", type: "Private University" },
@@ -934,7 +937,7 @@ Message: ${enquiry.message}`;
       { name: "GITAM University",         location: "Hyderabad, Telangana", type: "Deemed University" }
     ];
 
-    const otheruniversity = [
+    const othercollages = [
       { name: "VIT Vellore University",      location: "Chennai, Tamil Nadu",         type: "Deemed University" },
       { name: "Amrita University",           location: "Multiple Campuses (4)",       type: "Deemed University" },
       { name: "SRM University",             location: "Chennai, Tamil Nadu",         type: "Deemed University" },
@@ -965,17 +968,57 @@ Message: ${enquiry.message}`;
     let currentTab = 'tg';
 
     function openCollegeModal(programKey) {
-      currentProgram = programKey;
-      currentTab = 'tg';
-      const label = { btech:"B.Tech", bba:"BBA", mba:"MBA", mtech:"M.Tech", mca:"MCA", bca:"BCA", paramedical:"Paramedical" }[programKey];
-      document.getElementById('modal-program-title').textContent = label + " Colleges";
-      document.querySelectorAll('.college-tab').forEach((t, i) => t.classList.toggle('active', i === 0));
-      renderCollegeList('tg');
-      document.getElementById('college-list-view').style.display = 'block';
-      document.getElementById('college-detail-view').classList.remove('active');
-      document.getElementById('collegeModal').classList.add('active');
-    }
+  currentProgram = programKey;
 
+  const label = {
+    btech: "B.Tech",
+    bba: "BBA",
+    mba: "MBA",
+    mtech: "M.Tech",
+    mca: "MCA",
+    bca: "BCA",
+    paramedical: "Paramedical"
+  }[programKey];
+
+  document.getElementById('modal-program-title').textContent =
+    label + " Colleges";
+
+  const tabsContainer = document.querySelector('.college-tabs');
+
+  // Show Hyderabad Colleges tab only for B.Tech
+  if (programKey === 'btech') {
+    tabsContainer.innerHTML = `
+      <button class="college-tab active" onclick="switchTab('hyd', this)">
+        Hyderabad Colleges
+      </button>
+      <button class="college-tab" onclick="switchTab('tg', this)">
+        TG Universities
+      </button>
+      <button class="college-tab" onclick="switchTab('other', this)">
+        Other State Universities
+      </button>
+    `;
+
+    currentTab = 'hyd';
+    renderCollegeList('hyd');
+  } else {
+    tabsContainer.innerHTML = `
+      <button class="college-tab active" onclick="switchTab('tg', this)">
+        TG Universities
+      </button>
+      <button class="college-tab" onclick="switchTab('other', this)">
+        Other State Universities
+      </button>
+    `;
+
+    currentTab = 'tg';
+    renderCollegeList('tg');
+  }
+
+  document.getElementById('college-list-view').style.display = 'block';
+  document.getElementById('college-detail-view').classList.remove('active');
+  document.getElementById('collegeModal').classList.add('active');
+}
     function switchTab(tab, btn) {
       currentTab = tab;
       document.querySelectorAll('.college-tab').forEach(t => t.classList.remove('active'));
