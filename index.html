@@ -891,7 +891,33 @@ Message: ${enquiry.message}`;
     }
 
     // ===== COLLEGE DATA =====
-    const tgColleges = [
+    const hydColleges = [
+      { name: "CBIT",                            location: "Hyderabad, Telangana", type: "Autonomous College",  quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "VASAVI",                          location: "Hyderabad, Telangana", type: "Autonomous College",  quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "VNR Vignan Jyothi",               location: "Hyderabad, Telangana", type: "Autonomous College",  quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "Goka Raju Ranga Raju (GRRR)",     location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "KMIT & Group (NGIT-KMEC-KMCE)",   location: "Hyderabad, Telangana", type: "Group of Colleges",   quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "G. Narayanamma (Women)",           location: "Hyderabad, Telangana", type: "Women's College",     quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "MGIT",                            location: "Hyderabad, Telangana", type: "Autonomous College",  quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "BVRIT (Co-Ed) Narsapur",          location: "Narsapur, Telangana",  type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "Srinidhi",                        location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "MVSR",                            location: "Hyderabad, Telangana", type: "Autonomous College",  quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "Vardhaman",                       location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "CVR",                             location: "Hyderabad, Telangana", type: "Autonomous College",  quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "BVRIT (Women) Bachupally",        location: "Hyderabad, Telangana", type: "Women's College",     quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "Matrusri",                        location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "Vidya Jyothi",                    location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "VBIT",                            location: "Hyderabad, Telangana", type: "Autonomous College",  quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "ACE",                             location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "Guru Nanak",                      location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "Sri Indu",                        location: "Hyderabad, Telangana", type: "Engineering College", quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "Stanley (Women)",                 location: "Hyderabad, Telangana", type: "Women's College",     quota: "TG EAPCET | Convenor | Management (B.Cat & NRI) Quota" },
+      { name: "Srinidhi University",             location: "Hyderabad, Telangana", type: "Private University",  quota: "Management | B.Cat & NRI Quota" },
+      { name: "Malla Reddy University",          location: "Hyderabad, Telangana", type: "Private University",  quota: "Management | B.Cat & NRI Quota" },
+      { name: "Guru Nanak University",           location: "Hyderabad, Telangana", type: "Private University",  quota: "Management | B.Cat & NRI Quota" }
+    ];
+    
+    const tguniversity = [
       { name: "Gurunanak University",     location: "Hyderabad, Telangana", type: "Private University" },
       { name: "Amity University",         location: "Hyderabad, Telangana", type: "Private University" },
       { name: "Woxsen University",        location: "Hyderabad, Telangana", type: "Private University" },
@@ -908,7 +934,7 @@ Message: ${enquiry.message}`;
       { name: "GITAM University",         location: "Hyderabad, Telangana", type: "Deemed University" }
     ];
 
-    const otherColleges = [
+    const otheruniversity = [
       { name: "VIT Vellore University",      location: "Chennai, Tamil Nadu",         type: "Deemed University" },
       { name: "Amrita University",           location: "Multiple Campuses (4)",       type: "Deemed University" },
       { name: "SRM University",             location: "Chennai, Tamil Nadu",         type: "Deemed University" },
