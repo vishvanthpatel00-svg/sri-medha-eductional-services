@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sri Medha Educational Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #C9A84C; --gold-light: #E8C97A;
+      --deep: #0B1426; --navy: #132241;
+      --cream: #FDF8EE; --text: #2C2C2C;
+      --muted: #6B7A99; --white: #FFFFFF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; background: rgba(11,20,38,0.97); padding: 0 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; height: 60px; }
+    .logo { color: white; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+    .logo span { color: var(--gold); }
+    .nav-links { display: flex; list-style: none; gap: 1.5rem; }
+    .nav-links a { color: white; text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--gold); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 60px; left: 0; width: 100%; background: rgba(11,20,38,0.98); z-index: 999; flex-direction: column; padding: 1rem 5%; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: white; text-decoration: none; font-size: 1rem; font-weight: 500; padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero { min-height: 100vh; background: linear-gradient(135deg, var(--deep), var(--navy)); color: white; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 5% 80px; }
+    .hero-content { max-width: 860px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 1rem; line-height: 1.1; }
+    .hero h1 span { color: var(--gold); }
+    .hero-quote { display: inline-block; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.5); color: var(--gold-light); font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2.5vw, 1.4rem); font-style: italic; padding: 0.7rem 1.8rem; border-radius: 50px; margin-bottom: 1.2rem; }
+    .hero p { font-size: 1.1rem; color: rgba(255,255,255,0.8); margin-bottom: 1rem; }
+    .hero-programs { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; }
+    .hero-programs span { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); color: white; padding: 0.3rem 0.9rem; border-radius: 50px; font-size: 0.85rem; font-weight: 500; }
+    .btn { display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--deep); padding: 0.9rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700; margin: 0.4rem; }
+    .btn-outline { display: inline-block; border: 2px solid var(--gold); color: var(--gold); padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700; margin: 0.4rem; }
+
+    section { padding: 5rem 5%; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem; color: var(--deep); }
+    .section-intro { color: var(--muted); max-width: 700px; margin-bottom: 3rem; }
+
+    /* PROGRAM CARDS */
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+    .card { background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; border: 2px solid transparent; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.12); border-color: var(--gold); }
+    .card h3 { margin-bottom: 0.5rem; color: var(--deep); }
+    .card p { color: var(--muted); font-size: 0.9rem; }
+    .card .view-colleges { margin-top: 0.8rem; font-size: 0.82rem; font-weight: 600; color: var(--gold); }
+
+    /* STUDY ABROAD */
+    #abroad { background: linear-gradient(135deg, var(--deep), var(--navy)); color: white; }
+    #abroad h2 { color: white; }
+    #abroad .section-intro { color: rgba(255,255,255,0.7); }
+    .abroad-badge { display: inline-block; background: rgba(201,168,76,0.2); border: 1px solid rgba(201,168,76,0.5); color: var(--gold-light); font-size: 0.85rem; font-weight: 600; padding: 0.3rem 1rem; border-radius: 50px; margin-bottom: 1rem; letter-spacing: 0.05em; }
+    .country-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .country-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,168,76,0.3); border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: background 0.2s, border-color 0.2s, transform 0.2s; text-align: center; }
+    .country-card:hover { background: rgba(201,168,76,0.12); border-color: var(--gold); transform: translateY(-4px); }
+    .country-flag { font-size: 3rem; margin-bottom: 0.8rem; display: block; }
+    .country-card h3 { color: white; font-size: 1.2rem; margin-bottom: 0.4rem; }
+    .country-card p { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+    .country-card .view-details { margin-top: 0.8rem; font-size: 0.82rem; font-weight: 600; color: var(--gold); }
+
+    /* MODAL BASE */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(11,20,38,0.75); z-index: 2000; align-items: center; justify-content: center; padding: 1rem; }
+    .modal-overlay.active { display: flex; }
+    .modal { background: white; border-radius: 20px; padding: 2.5rem; max-width: 720px; width: 100%; max-height: 88vh; overflow-y: auto; position: relative; }
+    .modal-close { position: absolute; top: 1rem; right: 1.2rem; font-size: 1.5rem; cursor: pointer; color: var(--muted); background: none; border: none; }
+    .modal h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--deep); margin-bottom: 0.3rem; }
+    .modal .modal-subtitle { color: var(--gold); font-size: 0.9rem; font-weight: 600; margin-bottom: 1.2rem; }
+
+    /* ---- STEP 1: LEAD GATE FORM ---- */
+    #lead-gate { background: var(--cream); border-radius: 14px; padding: 1.8rem; }
+    #lead-gate h4 { font-family: 'Playfair Display', serif; color: var(--deep); font-size: 1.2rem; margin-bottom: 0.4rem; }
+    #lead-gate p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.2rem; }
+    .lead-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 0.8rem; }
+    .lgi { width: 100%; padding: 0.75rem 1rem; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 0.95rem; margin-bottom: 0.8rem; }
+    .lgi:focus { outline: none; border-color: var(--gold); }
+    #lead-gate-btn { width: 100%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--deep); border: none; padding: 0.9rem; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1rem; font-family: inherit; }
+    #lead-gate-status { margin-top: 0.7rem; font-weight: 600; font-size: 0.9rem; }
+
+    /* ---- STEP 2: COLLEGE LIST ---- */
+    #college-list-view { display: none; }
+    .college-tabs { display: flex; gap: 0.5rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+    .college-tab { padding: 0.4rem 1rem; border-radius: 50px; border: 1px solid var(--gold); background: none; color: var(--gold); font-weight: 600; font-size: 0.82rem; cursor: pointer; font-family: inherit; }
+    .college-tab.active { background: var(--gold); color: var(--deep); }
+
+    /* SEARCH BOX – top right */
+    .search-row { display: flex; justify-content: flex-end; margin-bottom: 0.9rem; }
+    .college-search-box { padding: 0.55rem 1rem; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 0.88rem; width: 230px; }
+    .college-search-box:focus { outline: none; border-color: var(--gold); }
+
+    .college-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .college-item { padding: 0.8rem 1.2rem; border: 1px solid #eee; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: background 0.15s, border-color 0.15s; }
+    .college-item:hover { background: var(--cream); border-color: var(--gold); }
+    .college-item span { font-weight: 500; color: var(--deep); }
+    .college-item small { color: var(--muted); font-size: 0.8rem; }
+    .c-arrow { color: var(--gold); font-weight: 700; font-size: 1.1rem; flex-shrink: 0; margin-left: 0.5rem; }
+
+    /* ---- STEP 3: COLLEGE DETAIL ---- */
+    .college-detail { display: none; margin-top: 0.5rem; background: var(--cream); border-radius: 14px; padding: 1.5rem; }
+    .college-detail.active { display: block; }
+    .college-detail h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--deep); margin-bottom: 1rem; }
+    .college-detail table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .college-detail table tr td { padding: 0.5rem 0.6rem; vertical-align: top; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .college-detail table tr:last-child td { border-bottom: none; }
+    .college-detail table tr td:first-child { font-weight: 600; color: var(--navy); width: 38%; }
+    .back-btn { background: none; border: none; color: var(--gold); font-weight: 600; cursor: pointer; margin-bottom: 1rem; font-size: 0.9rem; display: flex; align-items: center; gap: 0.3rem; font-family: inherit; }
+
+    /* ABROAD MODAL */
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+    .info-box { background: var(--cream); border-radius: 12px; padding: 1.2rem; }
+    .info-box h5 { color: var(--gold); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem; }
+    .info-box ul { list-style: none; padding: 0; }
+    .info-box ul li { font-size: 0.88rem; color: var(--text); padding: 0.2rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .info-box ul li:last-child { border-bottom: none; }
+    .info-box ul li::before { content: "→ "; color: var(--gold); font-weight: 700; }
+
+    /* CONTACT */
+    .contact { background: white; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .contact-info p { margin-bottom: 1rem; color: var(--muted); }
+    .form-card { background: var(--cream); padding: 2rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; color: var(--deep); }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.8rem 1rem; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 0.95rem; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--gold); }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-submit { width: 100%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--deep); border: none; padding: 1rem; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1rem; font-family: inherit; }
+    #status { margin-top: 1rem; font-weight: 600; }
+
+    /* POPUP */
+    .popup-overlay { display: none; position: fixed; inset: 0; background: rgba(11,20,38,0.6); z-index: 3000; align-items: center; justify-content: center; padding: 1rem; }
+    .popup-overlay.active { display: flex; }
+    .popup-box { background: white; border-radius: 20px; padding: 2.5rem 2rem; max-width: 420px; width: 100%; text-align: center; position: relative; box-shadow: 0 30px 80px rgba(0,0,0,0.3); }
+    .popup-box .popup-close { position: absolute; top: 1rem; right: 1.2rem; font-size: 1.3rem; cursor: pointer; background: none; border: none; color: var(--muted); }
+    .popup-box h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--deep); margin-bottom: 0.4rem; }
+    .popup-box p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .popup-box input { width: 100%; padding: 0.75rem 1rem; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; margin-bottom: 0.8rem; font-size: 1rem; }
+    .popup-box button.popup-submit { width: 100%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--deep); border: none; padding: 0.9rem; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1rem; font-family: inherit; }
+    #popup-status { margin-top: 0.8rem; font-weight: 600; font-size: 0.9rem; }
+
+    footer { background: var(--deep); color: rgba(255,255,255,0.7); text-align: center; padding: 2rem; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .contact-grid, .form-row, .info-grid, .lead-row { grid-template-columns: 1fr; }
+      .search-row { justify-content: stretch; }
+      .college-search-box { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="logo">Sri <span>Medha</span></div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#abroad">Study Abroad</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#courses" onclick="closeMenu()">Courses</a>
+  <a href="#abroad" onclick="closeMenu()">Study Abroad</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-quote">"Admission to All Over India &amp; Abroad Colleges"</div>
+    <h1>Shaping Futures Through <span>Excellence</span></h1>
+    <p>Expert guidance and admission assistance for students across India and worldwide.</p>
+    <div class="hero-programs">
+      <span>B.Tech</span><span>BBA</span><span>MBA</span>
+      <span>M.Tech</span><span>MCA</span><span>BCA</span>
+      <span>Paramedical</span><span>🌍 Study Abroad</span>
+    </div>
+    <a href="#courses" class="btn">Explore Programs</a>
+    <a href="#abroad" class="btn-outline">Study Abroad</a>
+  </div>
+</section>
+
+<!-- Courses -->
+<section id="courses">
+  <div class="container">
+    <h2>Programs We Support</h2>
+    <p class="section-intro">Click on any program to explore colleges across India.</p>
+    <div class="cards">
+      <div class="card" onclick="openCollegeModal('btech')"><h3>B.Tech</h3><p>Engineering admissions across leading institutions all over India.</p><div class="view-colleges">View Colleges →</div></div>
+      <div class="card" onclick="openCollegeModal('bba')"><h3>BBA</h3><p>Bachelor of Business Administration from top management colleges.</p><div class="view-colleges">View Colleges →</div></div>
+      <div class="card" onclick="openCollegeModal('mba')"><h3>MBA</h3><p>Management programs with placement-focused colleges nationwide.</p><div class="view-colleges">View Colleges →</div></div>
+      <div class="card" onclick="openCollegeModal('mtech')"><h3>M.Tech</h3><p>Postgraduate engineering admissions at premier institutes.</p><div class="view-colleges">View Colleges →</div></div>
+      <div class="card" onclick="openCollegeModal('mca')"><h3>MCA</h3><p>Master of Computer Applications at top universities.</p><div class="view-colleges">View Colleges →</div></div>
+      <div class="card" onclick="openCollegeModal('bca')"><h3>BCA</h3><p>Bachelor of Computer Applications across India's best colleges.</p><div class="view-colleges">View Colleges →</div></div>
+      <div class="card" onclick="openCollegeModal('paramedical')"><h3>Paramedical</h3><p>Allied health science programs at leading medical colleges.</p><div class="view-colleges">View Colleges →</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Study Abroad -->
+<section id="abroad">
+  <div class="container">
+    <div class="abroad-badge">🌍 STUDY ABROAD</div>
+    <h2>Study in Top Countries</h2>
+    <p class="section-intro">We guide you through admissions, visa, scholarships and everything you need to study abroad. Click a country to know more.</p>
+    <div class="country-cards">
+      <div class="country-card" onclick="openAbroadModal('usa')"><span class="country-flag">🇺🇸</span><h3>USA</h3><p>World's top universities with cutting-edge research</p><div class="view-details">View Details →</div></div>
+      <div class="country-card" onclick="openAbroadModal('uk')"><span class="country-flag">🇬🇧</span><h3>UK</h3><p>Historic universities with globally recognised degrees</p><div class="view-details">View Details →</div></div>
+      <div class="country-card" onclick="openAbroadModal('canada')"><span class="country-flag">🇨🇦</span><h3>Canada</h3><p>Affordable education with post-study work visa options</p><div class="view-details">View Details →</div></div>
+      <div class="country-card" onclick="openAbroadModal('australia')"><span class="country-flag">🇦🇺</span><h3>Australia</h3><p>High quality education with excellent lifestyle</p><div class="view-details">View Details →</div></div>
+      <div class="country-card" onclick="openAbroadModal('germany')"><span class="country-flag">🇩🇪</span><h3>Germany</h3><p>Free or low cost education at world-class universities</p><div class="view-details">View Details →</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>Get in Touch</h2>
+    <p class="section-intro">Fill out the enquiry form and our counsellor will contact you shortly.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p><strong>Phone:</strong> +91 93912 26050</p>
+        <p><strong>Email:</strong> info@srimedha.com</p>
+        <p><strong>Location:</strong> Hyderabad, Telangana</p>
+      </div>
+      <form id="enquiry-form" class="form-card">
+        <div class="form-row">
+          <div class="form-group"><label>Your Name *</label><input type="text" id="name" required></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" id="phone" required></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input type="email" id="email"></div>
+        <div class="form-group"><label>Current Grade</label><input type="text" id="grade"></div>
+        <div class="form-group">
+          <label>Interested Program</label>
+          <select id="program">
+            <option value="">Select Program</option>
+            <option>B.Tech</option><option>BBA</option><option>MBA</option>
+            <option>M.Tech</option><option>MCA</option><option>BCA</option><option>Paramedical</option>
+            <option>Study Abroad - USA</option><option>Study Abroad - UK</option>
+            <option>Study Abroad - Canada</option><option>Study Abroad - Australia</option>
+            <option>Study Abroad - Germany</option><option>Intermediate</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea id="message"></textarea></div>
+        <button type="submit" class="form-submit">Submit Enquiry</button>
+        <p id="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <h2>About Us</h2>
+    <p class="section-intro">Sri Medha Educational Services helps students choose the right course and college based on their academic goals — across all states of India and top countries worldwide. We offer free career counselling and education loan assistance.</p>
+  </div>
+</section>
+
+<footer><p>&copy; 2026 Sri Medha Educational Services. All rights reserved.</p></footer>
+
+<!-- Quick Capture Popup -->
+<div class="popup-overlay" id="quickPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <h3>Get Free Counselling!</h3>
+    <p>Enter your details and our expert counsellor will call you back within 24 hours.</p>
+    <input type="text" id="popup-name" placeholder="Your Name *" />
+    <input type="tel" id="popup-phone" placeholder="Phone Number *" />
+    <button class="popup-submit" onclick="submitPopup()">Get Callback Now</button>
+    <p id="popup-status"></p>
+  </div>
+</div>
+
+<!-- ============================================================
+     COLLEGE MODAL
+     Step 1: Lead gate form  →  Step 2: College list (with search)
+     →  Step 3: College detail
+     ============================================================ -->
+<div class="modal-overlay" id="collegeModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeCollegeModal()">✕</button>
+    <h3 id="modal-program-title"></h3>
+    <div class="modal-subtitle">Admission to All Over India Colleges</div>
+
+    <!-- STEP 1: Lead Gate -->
+    <div id="lead-gate">
+      <h4>🎓 Unlock the Full College List</h4>
+      <p>Enter your details below to view all colleges and get free counselling for <strong id="lead-program-name"></strong>.</p>
+      <div class="lead-row">
+        <input class="lgi" type="text" id="lead-name" placeholder="Your Name *" />
+        <input class="lgi" type="tel" id="lead-phone" placeholder="Phone Number *" />
+      </div>
+      <input class="lgi" type="email" id="lead-email" placeholder="Email Address (optional)" style="width:100%;" />
+      <button id="lead-gate-btn" onclick="submitLeadGate()">View Colleges Now →</button>
+      <p id="lead-gate-status"></p>
+    </div>
+
+    <!-- STEP 2: College List -->
+    <div id="college-list-view">
+      <div class="college-tabs">
+        <button class="college-tab active" onclick="switchTab('tg', this)">TG Colleges &amp; Universities</button>
+        <button class="college-tab" onclick="switchTab('other', this)">Other State Universities</button>
+      </div>
+      <!-- Search box – top right -->
+      <div class="search-row">
+        <input class="college-search-box" type="text" id="collegeSearch" placeholder="🔍 Search college..." oninput="searchColleges()" />
+      </div>
+      <div class="college-list" id="college-list"></div>
+    </div>
+
+    <!-- STEP 3: College Detail -->
+    <div id="college-detail-view" class="college-detail">
+      <button class="back-btn" onclick="showCollegeList()">← Back to list</button>
+      <h4 id="detail-college-name"></h4>
+      <table id="detail-table"></table>
+    </div>
+  </div>
+</div>
+
+<!-- Abroad Modal -->
+<div class="modal-overlay" id="abroadModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeAbroadModal()">✕</button>
+    <h3 id="abroad-modal-title"></h3>
+    <div class="modal-subtitle" id="abroad-modal-subtitle"></div>
+    <div class="info-grid" id="abroad-info-grid"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// ===== SUPABASE =====
+const SUPABASE_URL = "https://lrltkwphwmxexerteplr.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxybHRrd3Bod214ZXhlcnRlcGxyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDAxNTEsImV4cCI6MjA5NDE3NjE1MX0.svyH3kZpD6Me3FjYpwoEsFT6_-g1Bq303_9OjBvr79c";
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// ===== NAV =====
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMenu()  { document.getElementById('mobileMenu').classList.remove('open'); }
+
+// ===== MAIN CONTACT FORM =====
+document.getElementById("enquiry-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const st = document.getElementById("status");
+  st.textContent = "Submitting..."; st.style.color = "#132241";
+  const enquiry = {
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value,
+    email: document.getElementById("email").value,
+    grade: document.getElementById("grade").value,
+    program: document.getElementById("program").value,
+    message: document.getElementById("message").value
+  };
+  const { error } = await supabaseClient.from("enquiries").insert([enquiry]);
+  if (error) { st.textContent = "Error: " + error.message; st.style.color = "red"; }
+  else {
+    st.textContent = "Thank you! Your enquiry has been submitted."; st.style.color = "green";
+    const msg = `New Enquiry – Sri Medha\n\nName: ${enquiry.name}\nPhone: ${enquiry.phone}\nEmail: ${enquiry.email}\nGrade: ${enquiry.grade}\nProgram: ${enquiry.program}\nMessage: ${enquiry.message}`;
+    window.open(`https://wa.me/919391226050?text=${encodeURIComponent(msg)}`, "_blank");
+    e.target.reset();
+  }
+});
+
+// ===== POPUP =====
+setTimeout(() => { document.getElementById('quickPopup').classList.add('active'); }, 10000);
+function closePopup() { document.getElementById('quickPopup').classList.remove('active'); }
+async function submitPopup() {
+  const name  = document.getElementById("popup-name").value.trim();
+  const phone = document.getElementById("popup-phone").value.trim();
+  const ps    = document.getElementById("popup-status");
+  if (!name || !phone) { ps.textContent = "Please enter both name and phone number."; ps.style.color = "red"; return; }
+  ps.textContent = "Submitting..."; ps.style.color = "#132241";
+  const { error } = await supabaseClient.from("enquiries").insert([
+    { name, phone, email:"", grade:"", program:"Quick Callback", message:"Quick popup callback request" }
+  ]);
+  if (error) { ps.textContent = "Error: " + error.message; ps.style.color = "red"; }
+  else {
+    ps.textContent = "Thank you! We'll call you back soon."; ps.style.color = "green";
+    window.open(`https://wa.me/919391226050?text=${encodeURIComponent(`Quick Callback\n\nName: ${name}\nPhone: ${phone}`)}`, "_blank");
+    document.getElementById("popup-name").value = "";
+    document.getElementById("popup-phone").value = "";
+    setTimeout(closePopup, 2000);
+  }
+}
+
+// ===== COLLEGE DATA =====
+const tgColleges = [
+  { name: "Chaitanya Bharathi Institute of Technology (CBIT)",              location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "Vasavi College of Engineering",                                   location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "VNR Vignana Jyothi Institute of Engineering and Technology",      location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "Gokaraju Rangaraju Institute of Engineering and Technology (GRIET)", location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "Keshav Memorial Institute of Technology (KMIT)",                  location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "Neil Gogte Institute of Technology (NGIT)",                       location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Keshav Memorial Engineering College (KMEC)",                      location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "G. Narayanamma Institute of Technology and Science for Women (GNITS)", location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "Mahatma Gandhi Institute of Technology (MGIT)",                   location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "B V Raju Institute of Technology (BVRIT)",                        location: "Narsapur, Telangana",  type: "Autonomous College" },
+  { name: "BVRIT College of Engineering for Women",                          location: "Bachupally, Telangana", type: "Autonomous College" },
+  { name: "Sreenidhi Institute of Science and Technology (SNIST)",           location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "Maturi Venkata Subba Rao Engineering College (MVSR)",             location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "Vardhaman College of Engineering",                                location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "CVR College of Engineering",                                      location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Matrusri Engineering College",                                    location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Vidya Jyothi Institute of Technology (VJIT)",                     location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Vignana Bharathi Institute of Technology (VBIT)",                 location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "ACE Engineering College",                                         location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Guru Nanak Institutions Technical Campus",                        location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Sridevi Women's Engineering College",                             location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Sri Indu College of Engineering and Technology",                  location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Stanley College of Engineering and Technology for Women",         location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "CMR College of Engineering and Technology (CMRCET)",              location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "CMR Institute of Technology (CMRIT)",                             location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "CMR Technical Campus (CMRTC)",                                    location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Geethanjali College of Engineering and Technology",               location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Malla Reddy Engineering College",                                 location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Malla Reddy College of Engineering and Technology",               location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Institute of Aeronautical Engineering (IARE)",                    location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "TKR College of Engineering and Technology",                       location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Sreyas Institute of Engineering and Technology",                  location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "K.G. Reddy College of Engineering and Technology",                location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Joginpally B.R. Engineering College (JBREC)",                     location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Malla Reddy Institute of Technology and Science",                 location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Malla Reddy Engineering College for Women",                       location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Anurag Engineering College",                                      location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Holy Mary Institute of Technology and Science",                   location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Nalla Malla Reddy Engineering College",                           location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Nalla Narasimha Reddy Education Society Group of Institutions",   location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Samskruti College of Engineering and Technology",                 location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Princeton Institute of Engineering and Technology for Women",     location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Megha Institute of Engineering and Technology for Women",         location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Avanthi Institute of Engineering and Technology",                 location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Bharat Institute of Engineering and Technology",                  location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Scient Institute of Technology",                                  location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "St. Martin's Engineering College",                                location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "St. Peter's Engineering College",                                 location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "AVN Institute of Engineering and Technology",                     location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Brilliant Grammar School Educational Society Group of Institutions", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Kasireddy Narayan Reddy College of Engineering and Research",     location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Arjun College of Technology and Sciences",                        location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Global Institute of Engineering and Technology",                  location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Annamacharya Institute of Technology and Sciences, Hyderabad",    location: "Hyderabad, Telangana", type: "Private College" },
+  // TG Universities
+  { name: "Sreenidhi University",     location: "Hyderabad, Telangana",  type: "Private University" },
+  { name: "Malla Reddy University",   location: "Hyderabad, Telangana",  type: "Private University" },
+  { name: "Guru Nanak University",    location: "Hyderabad, Telangana",  type: "Private University" },
+  { name: "Anurag University",        location: "Hyderabad, Telangana",  type: "Private University" },
+  { name: "Woxsen University",        location: "Hyderabad, Telangana",  type: "Private University" },
+  { name: "Vignan University",        location: "Guntur, Telangana",     type: "Deemed University" },
+  { name: "KL University, Hyderabad", location: "Hyderabad, Telangana",  type: "Deemed University" },
+  { name: "St. Mary's University",    location: "Hyderabad, Telangana",  type: "Private University" },
+  { name: "Mahindra University",      location: "Hyderabad, Telangana",  type: "Private University" },
+  { name: "SR University",            location: "Warangal, Telangana",   type: "Private University" },
+  { name: "Kaveri University",        location: "Hyderabad, Telangana",  type: "Private University" },
+  { name: "Chaitanya University",     location: "Hyderabad, Telangana",  type: "Private University" },
+  { name: "GITAM University, Hyderabad", location: "Hyderabad, Telangana", type: "Deemed University" },
+  { name: "Amity University, Hyderabad", location: "Hyderabad, Telangana", type: "Private University" }
+];
+
+const otherColleges = [
+  { name: "VIT Vellore University",       location: "Chennai, Tamil Nadu",         type: "Deemed University" },
+  { name: "Amrita University",            location: "Multiple Campuses (4)",       type: "Deemed University" },
+  { name: "SRM University",              location: "Chennai, Tamil Nadu",         type: "Deemed University" },
+  { name: "RV University",               location: "Bengaluru, Karnataka",        type: "Private University" },
+  { name: "Saveetha University",         location: "Chennai, Tamil Nadu",         type: "Deemed University" },
+  { name: "Marvadi University",          location: "Gujarat",                     type: "Private University" },
+  { name: "Sandeep University",          location: "Nashik, Maharashtra",         type: "Private University" },
+  { name: "Sanjay Ghodawat University",  location: "Maharashtra",                 type: "Private University" },
+  { name: "Sathyabama University",       location: "Chennai, Tamil Nadu",         type: "Deemed University" },
+  { name: "Sharda University",           location: "Greater Noida (2 campuses)",  type: "Private University" },
+  { name: "P P Savani University",       location: "Gujarat",                     type: "Private University" },
+  { name: "Atmiya University",           location: "Gujarat",                     type: "Private University" },
+  { name: "Uttaranchal University",      location: "Dehradun, Uttarakhand",       type: "Private University" },
+  { name: "Kalasalingam University",     location: "Tamil Nadu",                  type: "Deemed University" }
+];
+
+const programSpeciality = {
+  btech: "B.Tech Engineering Programs",
+  bba:   "Bachelor of Business Administration",
+  mba:   "Master of Business Administration",
+  mtech: "M.Tech Postgraduate Engineering",
+  mca:   "Master of Computer Applications",
+  bca:   "Bachelor of Computer Applications",
+  paramedical: "Paramedical & Allied Health Sciences"
+};
+
+const programLabels = {
+  btech:"B.Tech", bba:"BBA", mba:"MBA",
+  mtech:"M.Tech", mca:"MCA", bca:"BCA", paramedical:"Paramedical"
+};
+
+let currentProgram = null;
+let currentTab     = 'tg';
+
+// ===== OPEN COLLEGE MODAL =====
+function openCollegeModal(key) {
+  currentProgram = key;
+  currentTab     = 'tg';
+
+  document.getElementById('modal-program-title').textContent = programLabels[key] + " Colleges";
+  document.getElementById('lead-program-name').textContent   = programLabels[key];
+
+  // Always start at Step 1
+  document.getElementById('lead-gate').style.display         = 'block';
+  document.getElementById('college-list-view').style.display = 'none';
+  document.getElementById('college-detail-view').classList.remove('active');
+
+  // Clear inputs
+  ['lead-name','lead-phone','lead-email'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('lead-gate-status').textContent = '';
+  const btn = document.getElementById('lead-gate-btn');
+  btn.textContent = 'View Colleges Now →'; btn.disabled = false;
+
+  document.querySelectorAll('.college-tab').forEach((t,i) => t.classList.toggle('active', i === 0));
+  document.getElementById('collegeModal').classList.add('active');
+}
+
+function closeCollegeModal() { document.getElementById('collegeModal').classList.remove('active'); }
+
+// ===== LEAD GATE SUBMIT =====
+async function submitLeadGate() {
+  const name  = document.getElementById('lead-name').value.trim();
+  const phone = document.getElementById('lead-phone').value.trim();
+  const email = document.getElementById('lead-email').value.trim();
+  const st    = document.getElementById('lead-gate-status');
+  const btn   = document.getElementById('lead-gate-btn');
+
+  if (!name || !phone) {
+    st.textContent = "Please enter your name and phone number.";
+    st.style.color = "red"; return;
+  }
+
+  btn.textContent = "Saving..."; btn.disabled = true;
+
+  const enquiry = {
+    name, phone, email,
+    grade:   "",
+    program: programLabels[currentProgram] + " – College List Request",
+    message: "User requested college list for " + programLabels[currentProgram]
+  };
+
+  const { error } = await supabaseClient.from("enquiries").insert([enquiry]);
+
+  btn.textContent = "View Colleges Now →"; btn.disabled = false;
+
+  if (error) {
+    st.textContent = "Submission failed. Please try again.";
+    st.style.color = "red"; return;
+  }
+
+  // WhatsApp notification
+  const msg = `College List Request – Sri Medha\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email || 'N/A'}\nProgram: ${programLabels[currentProgram]}`;
+  window.open(`https://wa.me/919391226050?text=${encodeURIComponent(msg)}`, "_blank");
+
+  // Reveal college list
+  document.getElementById('lead-gate').style.display         = 'none';
+  document.getElementById('college-list-view').style.display = 'block';
+  document.getElementById('collegeSearch').value             = '';
+  renderCollegeList('tg');
+}
+
+// ===== TAB SWITCH =====
+function switchTab(tab, btn) {
+  currentTab = tab;
+  document.querySelectorAll('.college-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('collegeSearch').value = '';
+  document.getElementById('college-detail-view').classList.remove('active');
+  renderCollegeList(tab);
+}
+
+// ===== RENDER COLLEGE LIST =====
+function renderCollegeList(tab) {
+  const colleges = tab === 'tg' ? tgColleges : otherColleges;
+  const list = document.getElementById('college-list');
+  list.innerHTML = '';
+  colleges.forEach((c, i) => {
+    const item = document.createElement('div');
+    item.className = 'college-item';
+    item.innerHTML = `
+      <div>
+        <span>${c.name}</span><br>
+        <small>${c.location} &nbsp;•&nbsp; ${c.type}</small>
+      </div>
+      <span class="c-arrow">›</span>`;
+    item.onclick = () => showCollegeDetail(i);
+    list.appendChild(item);
+  });
+}
+
+// ===== SEARCH =====
+function searchColleges() {
+  const q        = document.getElementById('collegeSearch').value.toLowerCase().trim();
+  const colleges = currentTab === 'tg' ? tgColleges : otherColleges;
+  const list     = document.getElementById('college-list');
+  list.innerHTML = '';
+
+  if (!q) { renderCollegeList(currentTab); return; }
+
+  const filtered = colleges.filter(c =>
+    c.name.toLowerCase().includes(q) ||
+    c.location.toLowerCase().includes(q) ||
+    c.type.toLowerCase().includes(q)
+  );
+
+  if (!filtered.length) {
+    list.innerHTML = `<div style="padding:1rem;text-align:center;color:var(--muted);font-weight:500;">No colleges found for "<em>${q}</em>"</div>`;
+    return;
+  }
+
+  filtered.forEach(college => {
+    const origIdx = colleges.findIndex(c => c.name === college.name);
+    const item = document.createElement('div');
+    item.className = 'college-item';
+    item.innerHTML = `
+      <div>
+        <span>${college.name}</span><br>
+        <small>${college.location} &nbsp;•&nbsp; ${college.type}</small>
+      </div>
+      <span class="c-arrow">›</span>`;
+    item.onclick = () => showCollegeDetail(origIdx);
+    list.appendChild(item);
+  });
+}
+
+// ===== COLLEGE DETAIL =====
+function showCollegeDetail(index) {
+  const colleges = currentTab === 'tg' ? tgColleges : otherColleges;
+  const c = colleges[index];
+  document.getElementById('detail-college-name').textContent = c.name;
+  const rows = [
+    ["Location",         c.location],
+    ["Institution Type", c.type],
+    ["Program Offered",  programSpeciality[currentProgram]],
+    ["Affiliation",      currentTab === 'tg' ? "JNTUH / Osmania University / Autonomous" : "Respective State University / UGC"],
+    ["Counselling",      "Free Career Counselling Available"],
+    ["Loan Assistance",  "Education Loan Assistance Available"],
+    ["Contact Us",       "+91 93912 26050"],
+    ["Email",            "info@srimedha.com"]
+  ];
+  document.getElementById('detail-table').innerHTML =
+    rows.map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+  document.getElementById('college-list-view').style.display = 'none';
+  document.getElementById('college-detail-view').classList.add('active');
+}
+
+function showCollegeList() {
+  document.getElementById('college-detail-view').classList.remove('active');
+  document.getElementById('college-list-view').style.display = 'block';
+}
+
+// ===== ABROAD DATA =====
+const abroadData = {
+  usa: {
+    flag:"🇺🇸", title:"Study in USA", subtitle:"World's No.1 destination for higher education",
+    universities:["MIT","Stanford University","Harvard University","University of California","Carnegie Mellon University","Purdue University","Arizona State University","University of Texas"],
+    visa:["F-1 Student Visa required","Apply 3–4 months before intake","SEVIS fee: $350","Visa interview at US Embassy","Valid for duration of study"],
+    cost:["Tuition: $15,000 – $50,000/year","Living expenses: $10,000 – $18,000/year","Health insurance: $1,500 – $2,500/year","Total approx: ₹25L – ₹60L/year"],
+    scholarships:["Fulbright Scholarship","Hubert H. Humphrey Fellowship","University Merit Scholarships","Graduate Assistantships","AAUW International Fellowships"]
+  },
+  uk: {
+    flag:"🇬🇧", title:"Study in UK", subtitle:"Historic excellence with world-renowned degrees",
+    universities:["University of Oxford","University of Cambridge","Imperial College London","UCL","University of Manchester","University of Edinburgh","King's College London","University of Birmingham"],
+    visa:["Student Visa (Tier 4) required","Apply via UCAS portal","CAS number from university needed","IHS fee: £624/year","Valid for course duration + 4 months"],
+    cost:["Tuition: £10,000 – £38,000/year","Living expenses: £9,000 – £15,000/year","Total approx: ₹20L – ₹55L/year","London is 20–30% more expensive"],
+    scholarships:["Chevening Scholarship (fully funded)","Commonwealth Scholarship","GREAT Scholarships","Oxford Weidenfeld Scholarships","British Council Scholarships"]
+  },
+  canada: {
+    flag:"🇨🇦", title:"Study in Canada", subtitle:"Affordable education with PR pathway after study",
+    universities:["University of Toronto","UBC Vancouver","McGill University","University of Waterloo","University of Alberta","McMaster University","Queen's University","Simon Fraser University"],
+    visa:["Study Permit required","Apply online via IRCC portal","Biometrics required","Processing: 4–12 weeks","Post Graduation Work Permit (PGWP) available"],
+    cost:["Tuition: CAD 15,000 – 35,000/year","Living expenses: CAD 10,000 – 15,000/year","Total approx: ₹18L – ₹40L/year","Cheaper than USA & UK"],
+    scholarships:["Vanier Canada Graduate Scholarships","Banting Postdoctoral Fellowships","University of Toronto Scholarships","Lester B. Pearson Scholarship","Province-specific grants"]
+  },
+  australia: {
+    flag:"🇦🇺", title:"Study in Australia", subtitle:"High quality education with 485 work visa after study",
+    universities:["University of Melbourne","Australian National University","University of Sydney","University of Queensland","Monash University","UNSW Sydney","University of Adelaide","University of Western Australia"],
+    visa:["Student Visa (Subclass 500)","Apply via ImmiAccount online","GTE statement required","Health insurance (OSHC) compulsory","485 Visa: 2–4 years work after study"],
+    cost:["Tuition: AUD 20,000 – 45,000/year","Living expenses: AUD 20,000 – 27,000/year","Total approx: ₹22L – ₹55L/year","Part-time work: 48 hrs/fortnight"],
+    scholarships:["Australia Awards Scholarship","Destination Australia Scholarship","Research Training Program","University Excellence Scholarships","Endeavour Leadership Program"]
+  },
+  germany: {
+    flag:"🇩🇪", title:"Study in Germany", subtitle:"Free education at public universities — only semester fee applies",
+    universities:["TU Munich","LMU Munich","Heidelberg University","Humboldt University Berlin","RWTH Aachen","KIT Karlsruhe","TU Berlin","University of Hamburg"],
+    visa:["National Visa (Type D) required","Apply at German Embassy/Consulate","Blocked account: €11,208/year required","Processing: 4–8 weeks","18-month job seeker visa after graduation"],
+    cost:["Tuition: FREE at public universities","Semester fee: €150 – €350/semester","Living expenses: €800 – €1,200/month","Total approx: ₹8L – ₹12L/year only"],
+    scholarships:["DAAD Scholarship (fully funded)","Deutschlandstipendium","Heinrich Böll Foundation","Konrad Adenauer Foundation","University merit scholarships"]
+  }
+};
+
+function openAbroadModal(key) {
+  const d = abroadData[key];
+  document.getElementById('abroad-modal-title').textContent    = d.flag + " " + d.title;
+  document.getElementById('abroad-modal-subtitle').textContent = d.subtitle;
+  document.getElementById('abroad-info-grid').innerHTML = `
+    <div class="info-box"><h5>🏛️ Top Universities</h5><ul>${d.universities.map(u=>`<li>${u}</li>`).join('')}</ul></div>
+    <div class="info-box"><h5>🛂 Visa Information</h5><ul>${d.visa.map(v=>`<li>${v}</li>`).join('')}</ul></div>
+    <div class="info-box"><h5>💰 Cost of Studying</h5><ul>${d.cost.map(c=>`<li>${c}</li>`).join('')}</ul></div>
+    <div class="info-box"><h5>🎓 Scholarship Options</h5><ul>${d.scholarships.map(s=>`<li>${s}</li>`).join('')}</ul></div>`;
+  document.getElementById('abroadModal').classList.add('active');
+}
+function closeAbroadModal() { document.getElementById('abroadModal').classList.remove('active'); }
+
+// Backdrop close
+document.getElementById('collegeModal').addEventListener('click', e => { if (e.target === document.getElementById('collegeModal')) closeCollegeModal(); });
+document.getElementById('abroadModal').addEventListener('click',  e => { if (e.target === document.getElementById('abroadModal'))  closeAbroadModal(); });
+document.getElementById('quickPopup').addEventListener('click',   e => { if (e.target === document.getElementById('quickPopup'))   closePopup(); });
+</script>
+</body>
+</html>
