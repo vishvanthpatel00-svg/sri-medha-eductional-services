@@ -377,8 +377,8 @@ document.getElementById("enquiry-form").addEventListener("submit", async (e) => 
   if (error) { st.textContent = "Error: " + error.message; st.style.color = "red"; }
   else {
     st.textContent = "Thank you! Your enquiry has been submitted."; st.style.color = "green";
-    const msg = `New Enquiry – Sri Medha\n\nName: ${enquiry.name}\nPhone: ${enquiry.phone}\nEmail: ${enquiry.email}\nGrade: ${enquiry.grade}\nProgram: ${enquiry.program}\nMessage: ${enquiry.message}`;
-    window.open(`https://wa.me/919391226050?text=${encodeURIComponent(msg)}`, "_blank");
+    //const msg = `New Enquiry – Sri Medha\n\nName: ${enquiry.name}\nPhone: ${enquiry.phone}\nEmail: ${enquiry.email}\nGrade: ${enquiry.grade}\nProgram: ${enquiry.program}\nMessage: ${enquiry.message}`;
+    //window.open(`https://wa.me/919391226050?text=${encodeURIComponent(msg)}`, "_blank");
     e.target.reset();
   }
 });
