@@ -918,136 +918,87 @@ Message: ${enquiry.message}`;
 // ===== COLLEGE DATA =====
 // Replace your entire tgColleges section with this exact code.
 
-const tgColleges = [
-  {
-    name: "Chaitanya Bharathi Institute of Technology (CBIT)",
-    location: "Hyderabad, Telangana",
-    type: "Autonomous Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
-  {
-    name: "Vasavi College of Engineering",
-    location: "Hyderabad, Telangana",
-    type: "Autonomous Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
-  {
-    name: "VNR Vignana Jyothi Institute of Engineering and Technology (VNR VJIET)",
-    location: "Hyderabad, Telangana",
-    type: "Autonomous Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
-  {
-    name: "G. Narayanamma Institute of Technology and Science for Women (GNITS)",
-    location: "Hyderabad, Telangana",
-    type: "Women's Autonomous Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
-  {
-    name: "Maturi Venkata Subba Rao Engineering College (MVSR)",
-    location: "Hyderabad, Telangana",
-    type: "Autonomous Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
-  {
-    name: "Gokaraju Rangaraju Institute of Engineering and Technology (GRIET)",
-    location: "Hyderabad, Telangana",
-    type: "Autonomous Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
-  {
-    name: "Sreenidhi Institute of Science and Technology (SNIST)",
-    location: "Hyderabad, Telangana",
-    type: "Autonomous Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
-  {
-    name: "Mahatma Gandhi Institute of Technology (MGIT)",
-    location: "Hyderabad, Telangana",
-    type: "Autonomous Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
-  {
-    name: "CVR College of Engineering",
-    location: "Hyderabad, Telangana",
-    type: "Autonomous Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
-  {
-    name: "Keshav Memorial Institute of Technology (KMIT)",
-    location: "Hyderabad, Telangana",
-    type: "Autonomous Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
-  {
-    name: "Vardhaman College of Engineering",
-    location: "Hyderabad, Telangana",
-    type: "Autonomous Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
-  {
-    name: "B V Raju Institute of Technology (BVRIT)",
-    location: "Narsapur, Telangana",
-    type: "Autonomous Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
+// ======================================================
+// TOP ENGINEERING COLLEGES IN HYDERABAD (RANKED ORDER)
+// Colleges first, then Universities
+// Duplicate names removed
+// ======================================================
 
-  // ===== TG UNIVERSITIES =====
-  {
-    name: "Guru Nanak University",
-    location: "Hyderabad, Telangana",
-    type: "Private University",
-    quota: "Management | B Category & NRI"
-  },
-  {
-    name: "Amity University",
-    location: "Hyderabad, Telangana",
-    type: "Private University",
-    quota: "Management | B Category & NRI"
-  },
-  {
-    name: "Woxsen University",
-    location: "Hyderabad, Telangana",
-    type: "Private University",
-    quota: "Management | B Category & NRI"
-  },
-  {
-    name: "Malla Reddy University",
-    location: "Hyderabad, Telangana",
-    type: "Private University",
-    quota: "Management | B Category & NRI"
-  },
-  {
-    name: "Anurag University",
-    location: "Hyderabad, Telangana",
-    type: "Private University",
-    quota: "Management | B Category & NRI"
-  },
-  {
-    name: "KL University",
-    location: "Hyderabad, Telangana",
-    type: "Deemed University",
-    quota: "Management | B Category & NRI"
-  },
-  {
-    name: "Mahindra University",
-    location: "Hyderabad, Telangana",
-    type: "Private University",
-    quota: "Management | B Category & NRI"
-  },
-  {
-    name: "SR University",
-    location: "Warangal, Telangana",
-    type: "Private University",
-    quota: "Management | B Category & NRI"
-  },
-  {
-    name: "GITAM University",
-    location: "Hyderabad, Telangana",
-    type: "Deemed University",
-    quota: "Management | B Category & NRI"
-  }
-];
+const hydColleges = [
+
+  // ===== TOP ENGINEERING COLLEGES =====
+  { name: "Chaitanya Bharathi Institute of Technology (CBIT)" },
+  { name: "Vasavi College of Engineering" },
+  { name: "VNR Vignana Jyothi Institute of Engineering and Technology" },
+  { name: "Gokaraju Rangaraju Institute of Engineering and Technology (GRIET)" },
+  { name: "Keshav Memorial Institute of Technology (KMIT)" },
+  { name: "Neil Gogte Institute of Technology (NGIT)" },
+  { name: "Keshav Memorial Engineering College (KMEC)" },
+  { name: "G. Narayanamma Institute of Technology and Science for Women (GNITS)" },
+  { name: "Mahatma Gandhi Institute of Technology (MGIT)" },
+  { name: "B V Raju Institute of Technology (BVRIT), Narsapur" },
+  { name: "BVRIT College of Engineering for Women, Bachupally" },
+  { name: "Sreenidhi Institute of Science and Technology (SNIST)" },
+  { name: "Maturi Venkata Subba Rao Engineering College (MVSR)" },
+  { name: "Vardhaman College of Engineering" },
+  { name: "CVR College of Engineering" },
+  { name: "Matrusri Engineering College" },
+  { name: "Vidya Jyothi Institute of Technology (VJIT)" },
+  { name: "Vignana Bharathi Institute of Technology (VBIT)" },
+  { name: "ACE Engineering College" },
+  { name: "Guru Nanak Institutions Technical Campus" },
+  { name: "Sridevi Women's Engineering College" },
+  { name: "Sri Indu College of Engineering and Technology" },
+  { name: "Stanley College of Engineering and Technology for Women" },
+  { name: "CMR College of Engineering and Technology (CMRCET)" },
+  { name: "CMR Institute of Technology (CMRIT)" },
+  { name: "CMR Technical Campus (CMRTC)" },
+  { name: "Geethanjali College of Engineering and Technology" },
+  { name: "Malla Reddy Engineering College" },
+  { name: "Malla Reddy College of Engineering and Technology" },
+  { name: "Institute of Aeronautical Engineering (IARE)" },
+  { name: "TKR College of Engineering and Technology" },
+  { name: "Sreyas Institute of Engineering and Technology" },
+  { name: "K.G. Reddy College of Engineering and Technology" },
+  { name: "Joginpally B.R. Engineering College (JBREC)" },
+  { name: "Malla Reddy Institute of Technology and Science" },
+  { name: "Malla Reddy Engineering College for Women" },
+  { name: "Anurag Engineering College" },
+  { name: "Holy Mary Institute of Technology and Science" },
+  { name: "Nalla Malla Reddy Engineering College" },
+  { name: "Nalla Narasimha Reddy Education Society Group of Institutions" },
+  { name: "Samskruti College of Engineering and Technology" },
+  { name: "Princeton Institute of Engineering and Technology for Women" },
+  { name: "Megha Institute of Engineering and Technology for Women" },
+  { name: "Avanthi Institute of Engineering and Technology" },
+  { name: "Bharat Institute of Engineering and Technology" },
+  { name: "Scient Institute of Technology" },
+  { name: "St. Martin's Engineering College" },
+  { name: "St. Peter's Engineering College" },
+  { name: "AVN Institute of Engineering and Technology" },
+  { name: "Brilliant Grammar School Educational Society Group of Institutions" },
+  { name: "Kasireddy Narayan Reddy College of Engineering and Research" },
+  { name: "Arjun College of Technology and Sciences" },
+  { name: "Global Institute of Engineering and Technology" },
+  { name: "Annamacharya Institute of Technology and Sciences, Hyderabad" },
+
+  // ===== TELANGANA UNIVERSITIES =====
+  { name: "Sreenidhi University" },
+  { name: "Malla Reddy University" },
+  { name: "Guru Nanak University" },
+  { name: "Anurag University" },
+  { name: "Woxsen University" },
+  { name: "Vignan University" },
+  { name: "KL University, Hyderabad" },
+  { name: "St. Mary's University" },
+  { name: "Mahindra University" },
+  { name: "SR University" },
+  { name: "Kaveri University" },
+  { name: "Chaitanya University" },
+  { name: "GITAM University, Hyderabad" },
+  { name: "Amity University, Hyderabad" },
+
+ 
     const otherColleges = [
       { name: "VIT Vellore University",      location: "Chennai, Tamil Nadu",         type: "Deemed University" },
       { name: "Amrita University",           location: "Multiple Campuses (4)",       type: "Deemed University" },
