@@ -774,6 +774,29 @@
           <button class="college-tab active" onclick="switchTab('tg', this)">TG Collages & Universities</button>
           <button class="college-tab" onclick="switchTab('other', this)">Other State Universities</button>
         </div>
+        <!-- ===== SEARCH BOX (ADD INSIDE COLLEGE MODAL) ===== -->
+<!-- Place this code just above:
+<div class="college-list" id="college-list"></div>
+-->
+
+<div class="form-group" style="margin-bottom: 1rem;">
+  <input
+    type="text"
+    id="collegeSearch"
+    placeholder="Search college name..."
+    onkeyup="searchColleges()"
+    style="
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+    "
+  />
+</div>
+
+<div class="college-list" id="college-list"></div>
         <div class="college-list" id="college-list"></div>
       </div>
       <div id="college-detail-view" class="college-detail">
@@ -893,261 +916,251 @@ Message: ${enquiry.message}`;
     // ===== COLLEGE DATA =====
   
 const tgColleges = [
-  {
-    name: "Vasavi College of Engineering",
-    location: "Ibrahimbagh, Hyderabad, Telangana",
-    type: "Autonomous Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
+  const tgColleges = [
+  // ===== TOP TELANGANA ENGINEERING COLLEGES =====
   {
     name: "Chaitanya Bharathi Institute of Technology (CBIT)",
-    location: "Gandipet, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
-    name: "VNR Vignana Jyothi Institute of Engineering and Technology",
-    location: "Bachupally, Hyderabad, Telangana",
+    name: "Vasavi College of Engineering",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
-    name: "G. Narayanamma Institute of Technology and Science for Women",
-    location: "Shaikpet, Hyderabad, Telangana",
-    type: "Autonomous Women's Engineering College",
+    name: "VNR Vignana Jyothi Institute of Engineering and Technology (VNR VJIET)",
+    location: "Hyderabad, Telangana",
+    type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
-    name: "MVSR Engineering College",
-    location: "Nadergul, Hyderabad, Telangana",
+    name: "G. Narayanamma Institute of Technology and Science for Women (GNITS)",
+    location: "Hyderabad, Telangana",
+    type: "Women's Autonomous Engineering College",
+    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
+  },
+  {
+    name: "Maturi Venkata Subba Rao Engineering College (MVSR)",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "Gokaraju Rangaraju Institute of Engineering and Technology (GRIET)",
-    location: "Bachupally, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
-    name: "Sreenidhi Institute of Science and Technology",
-    location: "Yamnampet, Hyderabad, Telangana",
+    name: "Sreenidhi Institute of Science and Technology (SNIST)",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "Mahatma Gandhi Institute of Technology (MGIT)",
-    location: "Gandipet, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "CVR College of Engineering",
-    location: "Mangalpalli, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
-    name: "Keshav Memorial Institute of Technology (KMIT)",
-    location: "Narayanguda, Hyderabad, Telangana",
-    type: "Autonomous Engineering College",
+    name: "Keshav Memorial Institute of Technology (KMIT) & Group Colleges (NGIT, KMEC, KMCE)",
+    location: "Hyderabad, Telangana",
+    type: "Group of Autonomous Colleges",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "Vardhaman College of Engineering",
-    location: "Shamshabad, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
-    name: "B V Raju Institute of Technology (BVRIT)",
+    name: "B V Raju Institute of Technology (BVRIT), Narsapur",
     location: "Narsapur, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
-    name: "Kakatiya Institute of Technology and Science (KITS)",
-    location: "Warangal, Telangana",
+    name: "BVRIT College of Engineering for Women",
+    location: "Bachupally, Hyderabad, Telangana",
+    type: "Women's Autonomous Engineering College",
+    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
+  },
+  {
+    name: "CVSR College of Engineering",
+    location: "Hyderabad, Telangana",
+    type: "Engineering College",
+    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
+  },
+  {
+    name: "Matrusri Engineering College",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
-    name: "BVRIT Hyderabad College of Engineering for Women",
-    location: "Bachupally, Hyderabad, Telangana",
-    type: "Autonomous Women's Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
-  {
-    name: "Anurag University (Formerly CVSR College of Engineering)",
-    location: "Ghatkesar, Hyderabad, Telangana",
-    type: "Private University",
-    quota: "Management | B Category & NRI"
-  },
-  {
-    name: "Matrusri Engineering College",
-    location: "Saidabad, Hyderabad, Telangana",
-    type: "Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
-  {
     name: "CMR Technical Campus",
-    location: "Kandlakoya, Hyderabad, Telangana",
-    type: "Engineering College",
+    location: "Hyderabad, Telangana",
+    type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "Bhoj Reddy Engineering College for Women",
-    location: "Saidabad, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Women's Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "Malla Reddy Engineering College (Autonomous)",
-    location: "Maisammaguda, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "Institute of Aeronautical Engineering (IARE)",
-    location: "Dundigal, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
-    name: "J.B. Institute of Engineering and Technology (JBIET)",
-    location: "Moinabad, Hyderabad, Telangana",
-    type: "Autonomous Engineering College",
+    name: "Joginpally B.R. Engineering College (JBREC)",
+    location: "Hyderabad, Telangana",
+    type: "Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "Guru Nanak Institutions Technical Campus",
-    location: "Ibrahimpatnam, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "Geethanjali College of Engineering and Technology",
-    location: "Cheeryal, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "Vidya Jyothi Institute of Technology (VJIT)",
-    location: "Moinabad, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
-    name: "CMR Institute of Technology",
-    location: "Kandlakoya, Hyderabad, Telangana",
+    name: "CMR Institute of Technology (CMRIT)",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
-    name: "MLR Institute of Technology",
-    location: "Dundigal, Hyderabad, Telangana",
+    name: "MLR Institute of Technology (MLRIT)",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "Malla Reddy College of Engineering and Technology (MRCET)",
-    location: "Maisammaguda, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "TKR College of Engineering and Technology",
-    location: "Meerpet, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "St. Martin's Engineering College",
-    location: "Kompally, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "Malla Reddy College of Engineering for Women",
-    location: "Maisammaguda, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Women's Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "Stanley College of Engineering and Technology for Women",
-    location: "Abids, Hyderabad, Telangana",
-    type: "Autonomous Women's Engineering College",
+    location: "Hyderabad, Telangana",
+    type: "Women's Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "Sri Indu College of Engineering and Technology",
-    location: "Sheriguda, Ibrahimpatnam, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "CMR Engineering College",
-    location: "Kandlakoya, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
+    type: "Autonomous Engineering College",
+    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
+  },
+  {
+    name: "Malla Reddy Institute of Technology and Science (MRITS)",
+    location: "Hyderabad, Telangana",
     type: "Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
-    name: "MLR Institute of Technology and Management",
-    location: "Dundigal, Hyderabad, Telangana",
-    type: "Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
-  {
-    name: "SR University (Formerly SR Engineering College)",
+    name: "SR Engineering College",
     location: "Warangal, Telangana",
-    type: "Private University",
-    quota: "Management | B Category & NRI"
+    type: "Autonomous Engineering College",
+    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
-    name: "Sri Devi Women's Engineering College",
-    location: "Vattinagulapally, Hyderabad, Telangana",
+    name: "Sridevi Women's Engineering College",
+    location: "Hyderabad, Telangana",
     type: "Women's Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
-    name: "CMR College of Engineering and Technology",
-    location: "Kandlakoya, Hyderabad, Telangana",
-    type: "Engineering College",
-    quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
-  },
-  {
     name: "Methodist College of Engineering and Technology",
-    location: "Abids, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "Sreyas Institute of Engineering and Technology",
-    location: "Nagole, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
-    name: "Teegala Krishna Reddy Engineering College (TKREC)",
-    location: "Meerpet, Hyderabad, Telangana",
+    name: "T K R Engineering College and Management",
+    location: "Hyderabad, Telangana",
     type: "Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "ACE Engineering College",
-    location: "Ghatkesar, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "St. Peter's Engineering College",
-    location: "Maisammaguda, Hyderabad, Telangana",
-    type: "Engineering College",
+    location: "Hyderabad, Telangana",
+    type: "Autonomous Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
   {
     name: "Bharath Institute of Engineering and Technology",
-    location: "Ibrahimpatnam, Hyderabad, Telangana",
+    location: "Hyderabad, Telangana",
     type: "Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
   },
@@ -1156,6 +1169,92 @@ const tgColleges = [
     location: "Warangal, Telangana",
     type: "Engineering College",
     quota: "TG EAPCET | Convenor | Management (B Category & NRI)"
+  },
+
+  // ===== TG UNIVERSITIES (ADD AFTER COLLEGES) =====
+  {
+    name: "Guru Nanak University",
+    location: "Hyderabad, Telangana",
+    type: "Private University",
+    quota: "Management | B Category & NRI"
+  },
+  {
+    name: "Amity University",
+    location: "Hyderabad, Telangana",
+    type: "Private University",
+    quota: "Management | B Category & NRI"
+  },
+  {
+    name: "Woxsen University",
+    location: "Hyderabad, Telangana",
+    type: "Private University",
+    quota: "Management | B Category & NRI"
+  },
+  {
+    name: "Malla Reddy University (3 Campuses)",
+    location: "Hyderabad, Telangana",
+    type: "Private University",
+    quota: "Management | B Category & NRI"
+  },
+  {
+    name: "Anurag University",
+    location: "Hyderabad, Telangana",
+    type: "Private University",
+    quota: "Management | B Category & NRI"
+  },
+  {
+    name: "Vignan University",
+    location: "Hyderabad, Telangana",
+    type: "Deemed University",
+    quota: "Management | B Category & NRI"
+  },
+  {
+    name: "KL University (2 Campuses)",
+    location: "Hyderabad, Telangana",
+    type: "Deemed University",
+    quota: "Management | B Category & NRI"
+  },
+  {
+    name: "St. Mary's University",
+    location: "Hyderabad, Telangana",
+    type: "Private University",
+    quota: "Management | B Category & NRI"
+  },
+  {
+    name: "Mahindra University",
+    location: "Hyderabad, Telangana",
+    type: "Private University",
+    quota: "Management | B Category & NRI"
+  },
+  {
+    name: "SR University",
+    location: "Warangal, Telangana",
+    type: "Private University",
+    quota: "Management | B Category & NRI"
+  },
+  {
+    name: "Sreenidhi University",
+    location: "Hyderabad, Telangana",
+    type: "Private University",
+    quota: "Management | B Category & NRI"
+  },
+  {
+    name: "Kaveri University",
+    location: "Hyderabad, Telangana",
+    type: "Private University",
+    quota: "Management | B Category & NRI"
+  },
+  {
+    name: "Chaitanya University",
+    location: "Hyderabad, Telangana",
+    type: "Private University",
+    quota: "Management | B Category & NRI"
+  },
+  {
+    name: "GITAM University",
+    location: "Hyderabad, Telangana",
+    type: "Deemed University",
+    quota: "Management | B Category & NRI"
   }
 ];
     const otherColleges = [
@@ -1209,18 +1308,30 @@ const tgColleges = [
       document.getElementById('college-list-view').style.display = 'block';
     }
 
-    function renderCollegeList(tab) {
-      const colleges = tab === 'tg' ? tgColleges : otherColleges;
-      const list = document.getElementById('college-list');
-      list.innerHTML = '';
-      colleges.forEach((c, i) => {
-        const item = document.createElement('div');
-        item.className = 'college-item';
-        item.innerHTML = `<span>${c.name}</span><small>${c.location}</small>`;
-        item.onclick = () => showCollegeDetail(i);
-        list.appendChild(item);
-      });
-    }
+   // =====  renderCollegeList FUNCTION WITH THIS =====
+function renderCollegeList(tab) {
+  const colleges = tab === 'tg' ? tgColleges : otherColleges;
+  const list = document.getElementById('college-list');
+  const searchBox = document.getElementById('collegeSearch');
+
+  // Clear search box whenever tab changes
+  if (searchBox) searchBox.value = '';
+
+  list.innerHTML = '';
+
+  colleges.forEach((c, i) => {
+    const item = document.createElement('div');
+    item.className = 'college-item';
+    item.innerHTML = `
+      <div>
+        <span>${c.name}</span><br>
+        <small>${c.location}</small>
+      </div>
+    `;
+    item.onclick = () => showCollegeDetail(i);
+    list.appendChild(item);
+  });
+}
 
     function closeCollegeModal() {
       document.getElementById('collegeModal').classList.remove('active');
@@ -1334,6 +1445,54 @@ const tgColleges = [
     document.getElementById('quickPopup').addEventListener('click', function(e) {
       if (e.target === this) closePopup();
     });
+    // ===== ADD THIS NEW FUNCTION ANYWHERE INSIDE <script> =====
+function searchColleges() {
+  const searchInput = document
+    .getElementById('collegeSearch')
+    .value
+    .toLowerCase()
+    .trim();
+
+  const colleges = currentTab === 'tg' ? tgColleges : otherColleges;
+  const list = document.getElementById('college-list');
+
+  list.innerHTML = '';
+
+  const filtered = colleges.filter(college =>
+    college.name.toLowerCase().includes(searchInput) ||
+    college.location.toLowerCase().includes(searchInput) ||
+    college.type.toLowerCase().includes(searchInput)
+  );
+
+  if (filtered.length === 0) {
+    list.innerHTML = `
+      <div style="
+        padding: 1rem;
+        text-align: center;
+        color: #6B7A99;
+        font-weight: 500;
+      ">
+        No colleges found.
+      </div>
+    `;
+    return;
+  }
+
+  filtered.forEach(college => {
+    const originalIndex = colleges.findIndex(c => c.name === college.name);
+
+    const item = document.createElement('div');
+    item.className = 'college-item';
+    item.innerHTML = `
+      <div>
+        <span>${college.name}</span><br>
+        <small>${college.location}</small>
+      </div>
+    `;
+    item.onclick = () => showCollegeDetail(originalIndex);
+    list.appendChild(item);
+  });
+}
   </script>
 
 </body>
