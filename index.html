@@ -384,26 +384,7 @@ document.getElementById("enquiry-form").addEventListener("submit", async (e) => 
 });
 
 // ===== POPUP =====
-setTimeout(() => { document.getElementById('quickPopup').classList.add('active'); }, 10000);
-function closePopup() { document.getElementById('quickPopup').classList.remove('active'); }
-async function submitPopup() {
-  const name  = document.getElementById("popup-name").value.trim();
-  const phone = document.getElementById("popup-phone").value.trim();
-  const ps    = document.getElementById("popup-status");
-  if (!name || !phone) { ps.textContent = "Please enter both name and phone number."; ps.style.color = "red"; return; }
-  ps.textContent = "Submitting..."; ps.style.color = "#132241";
-  const { error } = await supabaseClient.from("enquiries").insert([
-    { name, phone, email:"", grade:"", program:"Quick Callback", message:"Quick popup callback request" }
-  ]);
-  if (error) { ps.textContent = "Error: " + error.message; ps.style.color = "red"; }
-  else {
-    ps.textContent = "Thank you! We'll call you back soon."; ps.style.color = "green";
-    window.open(`https://wa.me/919391226050?text=${encodeURIComponent(`Quick Callback\n\nName: ${name}\nPhone: ${phone}`)}`, "_blank");
-    document.getElementById("popup-name").value = "";
-    document.getElementById("popup-phone").value = "";
-    setTimeout(closePopup, 2000);
-  }
-}
+
 
 // ===== COLLEGE DATA =====
 const tgColleges = [
