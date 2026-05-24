@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,6 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
 
-    /* NAV */
     nav { position: fixed; top: 0; width: 100%; background: rgba(11,20,38,0.97); padding: 0 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; height: 60px; }
     .logo { color: white; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
     .logo span { color: var(--gold); }
@@ -31,7 +31,6 @@
     .mobile-menu a:last-child { border-bottom: none; }
     .mobile-menu a:hover { color: var(--gold); }
 
-    /* HERO */
     .hero { min-height: 100vh; background: linear-gradient(135deg, var(--deep), var(--navy)); color: white; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 5% 80px; }
     .hero-content { max-width: 860px; }
     .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 1rem; line-height: 1.1; }
@@ -48,7 +47,6 @@
     h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem; color: var(--deep); }
     .section-intro { color: var(--muted); max-width: 700px; margin-bottom: 3rem; }
 
-    /* PROGRAM CARDS */
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
     .card { background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; border: 2px solid transparent; }
     .card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.12); border-color: var(--gold); }
@@ -56,7 +54,6 @@
     .card p { color: var(--muted); font-size: 0.9rem; }
     .card .view-colleges { margin-top: 0.8rem; font-size: 0.82rem; font-weight: 600; color: var(--gold); }
 
-    /* STUDY ABROAD */
     #abroad { background: linear-gradient(135deg, var(--deep), var(--navy)); color: white; }
     #abroad h2 { color: white; }
     #abroad .section-intro { color: rgba(255,255,255,0.7); }
@@ -69,7 +66,6 @@
     .country-card p { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
     .country-card .view-details { margin-top: 0.8rem; font-size: 0.82rem; font-weight: 600; color: var(--gold); }
 
-    /* MODAL BASE */
     .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(11,20,38,0.75); z-index: 2000; align-items: center; justify-content: center; padding: 1rem; }
     .modal-overlay.active { display: flex; }
     .modal { background: white; border-radius: 20px; padding: 2.5rem; max-width: 720px; width: 100%; max-height: 88vh; overflow-y: auto; position: relative; }
@@ -77,7 +73,6 @@
     .modal h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--deep); margin-bottom: 0.3rem; }
     .modal .modal-subtitle { color: var(--gold); font-size: 0.9rem; font-weight: 600; margin-bottom: 1.2rem; }
 
-    /* ---- STEP 1: LEAD GATE FORM ---- */
     #lead-gate { background: var(--cream); border-radius: 14px; padding: 1.8rem; }
     #lead-gate h4 { font-family: 'Playfair Display', serif; color: var(--deep); font-size: 1.2rem; margin-bottom: 0.4rem; }
     #lead-gate p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.2rem; }
@@ -87,13 +82,11 @@
     #lead-gate-btn { width: 100%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--deep); border: none; padding: 0.9rem; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1rem; font-family: inherit; }
     #lead-gate-status { margin-top: 0.7rem; font-weight: 600; font-size: 0.9rem; }
 
-    /* ---- STEP 2: COLLEGE LIST ---- */
     #college-list-view { display: none; }
     .college-tabs { display: flex; gap: 0.5rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
     .college-tab { padding: 0.4rem 1rem; border-radius: 50px; border: 1px solid var(--gold); background: none; color: var(--gold); font-weight: 600; font-size: 0.82rem; cursor: pointer; font-family: inherit; }
     .college-tab.active { background: var(--gold); color: var(--deep); }
 
-    /* SEARCH BOX – top right */
     .search-row { display: flex; justify-content: flex-end; margin-bottom: 0.9rem; }
     .college-search-box { padding: 0.55rem 1rem; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 0.88rem; width: 230px; }
     .college-search-box:focus { outline: none; border-color: var(--gold); }
@@ -105,7 +98,6 @@
     .college-item small { color: var(--muted); font-size: 0.8rem; }
     .c-arrow { color: var(--gold); font-weight: 700; font-size: 1.1rem; flex-shrink: 0; margin-left: 0.5rem; }
 
-    /* ---- STEP 3: COLLEGE DETAIL ---- */
     .college-detail { display: none; margin-top: 0.5rem; background: var(--cream); border-radius: 14px; padding: 1.5rem; }
     .college-detail.active { display: block; }
     .college-detail h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--deep); margin-bottom: 1rem; }
@@ -115,7 +107,6 @@
     .college-detail table tr td:first-child { font-weight: 600; color: var(--navy); width: 38%; }
     .back-btn { background: none; border: none; color: var(--gold); font-weight: 600; cursor: pointer; margin-bottom: 1rem; font-size: 0.9rem; display: flex; align-items: center; gap: 0.3rem; font-family: inherit; }
 
-    /* ABROAD MODAL */
     .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
     .info-box { background: var(--cream); border-radius: 12px; padding: 1.2rem; }
     .info-box h5 { color: var(--gold); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem; }
@@ -124,7 +115,6 @@
     .info-box ul li:last-child { border-bottom: none; }
     .info-box ul li::before { content: "→ "; color: var(--gold); font-weight: 700; }
 
-    /* CONTACT */
     .contact { background: white; }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
     .contact-info p { margin-bottom: 1rem; color: var(--muted); }
@@ -138,7 +128,6 @@
     .form-submit { width: 100%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--deep); border: none; padding: 1rem; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1rem; font-family: inherit; }
     #status { margin-top: 1rem; font-weight: 600; }
 
-    /* POPUP */
     .popup-overlay { display: none; position: fixed; inset: 0; background: rgba(11,20,38,0.6); z-index: 3000; align-items: center; justify-content: center; padding: 1rem; }
     .popup-overlay.active { display: flex; }
     .popup-box { background: white; border-radius: 20px; padding: 2.5rem 2rem; max-width: 420px; width: 100%; text-align: center; position: relative; box-shadow: 0 30px 80px rgba(0,0,0,0.3); }
@@ -162,7 +151,6 @@
 </head>
 <body>
 
-<!-- Navigation -->
 <nav>
   <div class="logo">Sri <span>Medha</span></div>
   <ul class="nav-links">
@@ -175,7 +163,6 @@
   <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#home" onclick="closeMenu()">Home</a>
   <a href="#courses" onclick="closeMenu()">Courses</a>
@@ -184,7 +171,6 @@
   <a href="#about" onclick="closeMenu()">About</a>
 </div>
 
-<!-- Hero -->
 <section class="hero" id="home">
   <div class="hero-content">
     <div class="hero-quote">"Admission to All Over India &amp; Abroad Colleges"</div>
@@ -200,7 +186,6 @@
   </div>
 </section>
 
-<!-- Courses -->
 <section id="courses">
   <div class="container">
     <h2>Programs We Support</h2>
@@ -217,7 +202,6 @@
   </div>
 </section>
 
-<!-- Study Abroad -->
 <section id="abroad">
   <div class="container">
     <div class="abroad-badge">🌍 STUDY ABROAD</div>
@@ -233,7 +217,6 @@
   </div>
 </section>
 
-<!-- Contact -->
 <section class="contact" id="contact">
   <div class="container">
     <h2>Get in Touch</h2>
@@ -270,7 +253,6 @@
   </div>
 </section>
 
-<!-- About -->
 <section id="about">
   <div class="container">
     <h2>About Us</h2>
@@ -280,7 +262,6 @@
 
 <footer><p>&copy; 2026 Sri Medha Educational Services. All rights reserved.</p></footer>
 
-<!-- Quick Capture Popup -->
 <div class="popup-overlay" id="quickPopup">
   <div class="popup-box">
     <button class="popup-close" onclick="closePopup()">✕</button>
@@ -293,18 +274,12 @@
   </div>
 </div>
 
-<!-- ============================================================
-     COLLEGE MODAL
-     Step 1: Lead gate form  →  Step 2: College list (with search)
-     →  Step 3: College detail
-     ============================================================ -->
 <div class="modal-overlay" id="collegeModal">
   <div class="modal">
     <button class="modal-close" onclick="closeCollegeModal()">✕</button>
     <h3 id="modal-program-title"></h3>
     <div class="modal-subtitle">Admission to All Over India Colleges</div>
 
-    <!-- STEP 1: Lead Gate -->
     <div id="lead-gate">
       <h4>🎓 Unlock the Full College List</h4>
       <p>Enter your details below to view all colleges and get free counselling for <strong id="lead-program-name"></strong>.</p>
@@ -317,20 +292,17 @@
       <p id="lead-gate-status"></p>
     </div>
 
-    <!-- STEP 2: College List -->
     <div id="college-list-view">
       <div class="college-tabs">
         <button class="college-tab active" onclick="switchTab('tg', this)">TG Colleges &amp; Universities</button>
         <button class="college-tab" onclick="switchTab('other', this)">Other State Universities</button>
       </div>
-      <!-- Search box – top right -->
       <div class="search-row">
         <input class="college-search-box" type="text" id="collegeSearch" placeholder="🔍 Search college..." oninput="searchColleges()" />
       </div>
       <div class="college-list" id="college-list"></div>
     </div>
 
-    <!-- STEP 3: College Detail -->
     <div id="college-detail-view" class="college-detail">
       <button class="back-btn" onclick="showCollegeList()">← Back to list</button>
       <h4 id="detail-college-name"></h4>
@@ -339,7 +311,6 @@
   </div>
 </div>
 
-<!-- Abroad Modal -->
 <div class="modal-overlay" id="abroadModal">
   <div class="modal">
     <button class="modal-close" onclick="closeAbroadModal()">✕</button>
@@ -351,16 +322,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// ===== SUPABASE =====
 const SUPABASE_URL = "https://lrltkwphwmxexerteplr.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxybHRrd3Bod214ZXhlcnRlcGxyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDAxNTEsImV4cCI6MjA5NDE3NjE1MX0.svyH3kZpD6Me3FjYpwoEsFT6_-g1Bq303_9OjBvr79c";
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// ===== NAV =====
 function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
 function closeMenu()  { document.getElementById('mobileMenu').classList.remove('open'); }
 
-// ===== MAIN CONTACT FORM =====
 document.getElementById("enquiry-form").addEventListener("submit", async (e) => {
   e.preventDefault();
   const st = document.getElementById("status");
@@ -373,108 +341,156 @@ document.getElementById("enquiry-form").addEventListener("submit", async (e) => 
     program: document.getElementById("program").value,
     message: document.getElementById("message").value
   };
-  const { error } = await supabaseClient.from("enquiries").insert([enquiry]);
-  if (error) { st.textContent = "Error: " + error.message; st.style.color = "red"; }
-  else {
+  try {
+    const res = await fetch(SUPABASE_URL + "/rest/v1/enquiries", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": SUPABASE_ANON_KEY,
+        "Authorization": "Bearer " + SUPABASE_ANON_KEY,
+        "Prefer": "return=minimal"
+      },
+      body: JSON.stringify(enquiry)
+    });
+    if (!res.ok) { const err = await res.text(); throw new Error(err); }
     st.textContent = "Thank you! Your enquiry has been submitted."; st.style.color = "green";
-    //const msg = `New Enquiry – Sri Medha\n\nName: ${enquiry.name}\nPhone: ${enquiry.phone}\nEmail: ${enquiry.email}\nGrade: ${enquiry.grade}\nProgram: ${enquiry.program}\nMessage: ${enquiry.message}`;
-    //window.open(`https://wa.me/919391226050?text=${encodeURIComponent(msg)}`, "_blank");
     e.target.reset();
+  } catch (err) {
+    st.textContent = "Error submitting. Please call us at +91 8099287734"; st.style.color = "red";
+    console.warn("Enquiry form error:", err.message);
   }
 });
 
-// ===== POPUP =====
-
-
-// ===== COLLEGE DATA =====
 const tgColleges = [
-  { name: "Chaitanya Bharathi Institute of Technology (CBIT)",              location: "Hyderabad, Telangana", type: "Autonomous College" },
-  { name: "Vasavi College of Engineering",                                   location: "Hyderabad, Telangana", type: "Autonomous College" },
-  { name: "VNR Vignana Jyothi Institute of Engineering and Technology",      location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "Chaitanya Bharathi Institute of Technology (CBIT)", location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "Vasavi College of Engineering", location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "VNR Vignana Jyothi Institute of Engineering and Technology", location: "Hyderabad, Telangana", type: "Autonomous College" },
   { name: "Gokaraju Rangaraju Institute of Engineering and Technology (GRIET)", location: "Hyderabad, Telangana", type: "Autonomous College" },
-  { name: "Keshav Memorial Institute of Technology (KMIT)",                  location: "Hyderabad, Telangana", type: "Autonomous College" },
-  { name: "Neil Gogte Institute of Technology (NGIT)",                       location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Keshav Memorial Engineering College (KMEC)",                      location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Keshav Memorial Institute of Technology (KMIT)", location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "Neil Gogte Institute of Technology (NGIT)", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Keshav Memorial Engineering College (KMEC)", location: "Hyderabad, Telangana", type: "Private College" },
   { name: "G. Narayanamma Institute of Technology and Science for Women (GNITS)", location: "Hyderabad, Telangana", type: "Autonomous College" },
-  { name: "Mahatma Gandhi Institute of Technology (MGIT)",                   location: "Hyderabad, Telangana", type: "Autonomous College" },
-  { name: "B V Raju Institute of Technology (BVRIT)",                        location: "Narsapur, Telangana",  type: "Autonomous College" },
-  { name: "BVRIT College of Engineering for Women",                          location: "Bachupally, Telangana", type: "Autonomous College" },
-  { name: "Sreenidhi Institute of Science and Technology (SNIST)",           location: "Hyderabad, Telangana", type: "Autonomous College" },
-  { name: "Maturi Venkata Subba Rao Engineering College (MVSR)",             location: "Hyderabad, Telangana", type: "Autonomous College" },
-  { name: "Vardhaman College of Engineering",                                location: "Hyderabad, Telangana", type: "Autonomous College" },
-  { name: "CVR College of Engineering",                                      location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Matrusri Engineering College",                                    location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Vidya Jyothi Institute of Technology (VJIT)",                     location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Vignana Bharathi Institute of Technology (VBIT)",                 location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "ACE Engineering College",                                         location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Guru Nanak Institutions Technical Campus",                        location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Sridevi Women's Engineering College",                             location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Sri Indu College of Engineering and Technology",                  location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Stanley College of Engineering and Technology for Women",         location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "CMR College of Engineering and Technology (CMRCET)",              location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "CMR Institute of Technology (CMRIT)",                             location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "CMR Technical Campus (CMRTC)",                                    location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Geethanjali College of Engineering and Technology",               location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Malla Reddy Engineering College",                                 location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Malla Reddy College of Engineering and Technology",               location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Institute of Aeronautical Engineering (IARE)",                    location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "TKR College of Engineering and Technology",                       location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Sreyas Institute of Engineering and Technology",                  location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "K.G. Reddy College of Engineering and Technology",                location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Joginpally B.R. Engineering College (JBREC)",                     location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Malla Reddy Institute of Technology and Science",                 location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Malla Reddy Engineering College for Women",                       location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Anurag Engineering College",                                      location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Holy Mary Institute of Technology and Science",                   location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Nalla Malla Reddy Engineering College",                           location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Nalla Narasimha Reddy Education Society Group of Institutions",   location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Samskruti College of Engineering and Technology",                 location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Princeton Institute of Engineering and Technology for Women",     location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Megha Institute of Engineering and Technology for Women",         location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Avanthi Institute of Engineering and Technology",                 location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Bharat Institute of Engineering and Technology",                  location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Scient Institute of Technology",                                  location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "St. Martin's Engineering College",                                location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "St. Peter's Engineering College",                                 location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "AVN Institute of Engineering and Technology",                     location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Mahatma Gandhi Institute of Technology (MGIT)", location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "B V Raju Institute of Technology (BVRIT)", location: "Narsapur, Telangana", type: "Autonomous College" },
+  { name: "BVRIT College of Engineering for Women", location: "Bachupally, Telangana", type: "Autonomous College" },
+  { name: "Sreenidhi Institute of Science and Technology (SNIST)", location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "Maturi Venkata Subba Rao Engineering College (MVSR)", location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "Vardhaman College of Engineering", location: "Hyderabad, Telangana", type: "Autonomous College" },
+  { name: "CVR College of Engineering", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Matrusri Engineering College", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Vidya Jyothi Institute of Technology (VJIT)", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Vignana Bharathi Institute of Technology (VBIT)", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "ACE Engineering College", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Guru Nanak Institutions Technical Campus", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Sridevi Women's Engineering College", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Sri Indu College of Engineering and Technology", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Stanley College of Engineering and Technology for Women", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "CMR College of Engineering and Technology (CMRCET)", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "CMR Institute of Technology (CMRIT)", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "CMR Technical Campus (CMRTC)", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Geethanjali College of Engineering and Technology", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Malla Reddy Engineering College", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Malla Reddy College of Engineering and Technology", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Institute of Aeronautical Engineering (IARE)", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "TKR College of Engineering and Technology", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Sreyas Institute of Engineering and Technology", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "K.G. Reddy College of Engineering and Technology", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Joginpally B.R. Engineering College (JBREC)", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Malla Reddy Institute of Technology and Science", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Malla Reddy Engineering College for Women", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Anurag Engineering College", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Holy Mary Institute of Technology and Science", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Nalla Malla Reddy Engineering College", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Nalla Narasimha Reddy Education Society Group of Institutions", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Samskruti College of Engineering and Technology", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Princeton Institute of Engineering and Technology for Women", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Megha Institute of Engineering and Technology for Women", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Avanthi Institute of Engineering and Technology", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Bharat Institute of Engineering and Technology", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Scient Institute of Technology", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "St. Martin's Engineering College", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "St. Peter's Engineering College", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "AVN Institute of Engineering and Technology", location: "Hyderabad, Telangana", type: "Private College" },
   { name: "Brilliant Grammar School Educational Society Group of Institutions", location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Kasireddy Narayan Reddy College of Engineering and Research",     location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Arjun College of Technology and Sciences",                        location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Global Institute of Engineering and Technology",                  location: "Hyderabad, Telangana", type: "Private College" },
-  { name: "Annamacharya Institute of Technology and Sciences, Hyderabad",    location: "Hyderabad, Telangana", type: "Private College" },
-  // TG Universities
-  { name: "Sreenidhi University",     location: "Hyderabad, Telangana",  type: "Private University" },
-  { name: "Malla Reddy University",   location: "Hyderabad, Telangana",  type: "Private University" },
-  { name: "Guru Nanak University",    location: "Hyderabad, Telangana",  type: "Private University" },
-  { name: "Anurag University",        location: "Hyderabad, Telangana",  type: "Private University" },
-  { name: "Woxsen University",        location: "Hyderabad, Telangana",  type: "Private University" },
-  { name: "Vignan University",        location: "Guntur, Telangana",     type: "Deemed University" },
-  { name: "KL University, Hyderabad", location: "Hyderabad, Telangana",  type: "Deemed University" },
-  { name: "St. Mary's University",    location: "Hyderabad, Telangana",  type: "Private University" },
-  { name: "Mahindra University",      location: "Hyderabad, Telangana",  type: "Private University" },
-  { name: "SR University",            location: "Warangal, Telangana",   type: "Private University" },
-  { name: "Kaveri University",        location: "Hyderabad, Telangana",  type: "Private University" },
-  { name: "Chaitanya University",     location: "Hyderabad, Telangana",  type: "Private University" },
+  { name: "Kasireddy Narayan Reddy College of Engineering and Research", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Arjun College of Technology and Sciences", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Global Institute of Engineering and Technology", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Annamacharya Institute of Technology and Sciences, Hyderabad", location: "Hyderabad, Telangana", type: "Private College" },
+  { name: "Sreenidhi University", location: "Hyderabad, Telangana", type: "Private University" },
+  { name: "Malla Reddy University", location: "Hyderabad, Telangana", type: "Private University" },
+  { name: "Guru Nanak University", location: "Hyderabad, Telangana", type: "Private University" },
+  { name: "Anurag University", location: "Hyderabad, Telangana", type: "Private University" },
+  { name: "Woxsen University", location: "Hyderabad, Telangana", type: "Private University" },
+  { name: "Vignan University", location: "Guntur, Telangana", type: "Deemed University" },
+  { name: "KL University, Hyderabad", location: "Hyderabad, Telangana", type: "Deemed University" },
+  { name: "St. Mary's University", location: "Hyderabad, Telangana", type: "Private University" },
+  { name: "Mahindra University", location: "Hyderabad, Telangana", type: "Private University" },
+  { name: "SR University", location: "Warangal, Telangana", type: "Private University" },
+  { name: "Kaveri University", location: "Hyderabad, Telangana", type: "Private University" },
+  { name: "Chaitanya University", location: "Hyderabad, Telangana", type: "Private University" },
   { name: "GITAM University, Hyderabad", location: "Hyderabad, Telangana", type: "Deemed University" },
   { name: "Amity University, Hyderabad", location: "Hyderabad, Telangana", type: "Private University" }
 ];
 
 const otherColleges = [
-  { name: "VIT Vellore University",       location: "Chennai, Tamil Nadu",         type: "Deemed University" },
-  { name: "Amrita University",            location: "Multiple Campuses (4)",       type: "Deemed University" },
-  { name: "SRM University",              location: "Chennai, Tamil Nadu",         type: "Deemed University" },
-  { name: "RV University",               location: "Bengaluru, Karnataka",        type: "Private University" },
-  { name: "Saveetha University",         location: "Chennai, Tamil Nadu",         type: "Deemed University" },
-  { name: "Marvadi University",          location: "Gujarat",                     type: "Private University" },
-  { name: "Sandeep University",          location: "Nashik, Maharashtra",         type: "Private University" },
-  { name: "Sanjay Ghodawat University",  location: "Maharashtra",                 type: "Private University" },
-  { name: "Sathyabama University",       location: "Chennai, Tamil Nadu",         type: "Deemed University" },
-  { name: "Sharda University",           location: "Greater Noida (2 campuses)",  type: "Private University" },
-  { name: "P P Savani University",       location: "Gujarat",                     type: "Private University" },
-  { name: "Atmiya University",           location: "Gujarat",                     type: "Private University" },
-  { name: "Uttaranchal University",      location: "Dehradun, Uttarakhand",       type: "Private University" },
-  { name: "Kalasalingam University",     location: "Tamil Nadu",                  type: "Deemed University" }
+  // Karnataka
+  { name: "Bangalore Institute of Technology (BIT)", location: "Bengaluru, Karnataka", type: "Autonomous College", affiliation: "VTU", naac: "A", established: "1979", highlights: "One of Bangalore's oldest & reputed govt-aided engineering colleges; strong alumni network; VTU affiliated autonomous." },
+  { name: "BMS College of Engineering (BMSCE)", location: "Bengaluru, Karnataka", type: "Autonomous College", affiliation: "VTU", naac: "A+", established: "1946", highlights: "One of the oldest private engineering colleges in India; NAAC A+; NBA accredited programs; excellent placements." },
+  { name: "BMS Institute of Technology and Management (BMSIT)", location: "Bengaluru, Karnataka", type: "Autonomous College", affiliation: "VTU", naac: "A", established: "2002", highlights: "Autonomous college under VTU; NBA accredited; strong industry connections and placement record." },
+  { name: "CMR Institute of Technology (CMRIT) Bangalore", location: "Bengaluru, Karnataka", type: "Autonomous College", affiliation: "VTU", naac: "A+", established: "2000", highlights: "NAAC A+ accredited; NBA accredited B.Tech programs; consistently high placement record; autonomous status." },
+  { name: "Jain University (Deemed to be University)", location: "Bengaluru, Karnataka", type: "Deemed University", affiliation: "UGC / NAAC A++", naac: "A++", established: "1990", highlights: "NAAC A++ rated; multiple campuses in Bangalore; strong research output; NIRF ranked; wide program offerings." },
+  { name: "PES University", location: "Bengaluru, Karnataka", type: "Private University", affiliation: "UGC", naac: "A+", established: "2013", highlights: "NAAC A+ accredited; known for CS/IT excellence; top placements with Google, Amazon, Microsoft; strong research focus." },
+  { name: "M S Ramaiah University of Applied Sciences (Ramaiah University)", location: "Bengaluru, Karnataka", type: "Private University", affiliation: "UGC", naac: "A+", established: "2013", highlights: "NAAC A+ rated; part of the legacy Ramaiah Group; strong engineering, medical & management programs; excellent placements." },
+  { name: "Alliance University", location: "Bengaluru, Karnataka", type: "Private University", affiliation: "UGC", naac: "A", established: "2010", highlights: "NAAC A accredited; strong MBA & Law programs; international collaborations; vibrant campus life; good placement record." },
+  { name: "Presidency University Bangalore", location: "Bengaluru, Karnataka", type: "Private University", affiliation: "UGC", naac: "A", established: "2013", highlights: "NAAC A accredited; modern campus in North Bangalore; focuses on skill-based education; good industry tie-ups." },
+  { name: "RV University", location: "Bengaluru, Karnataka", type: "Private University", affiliation: "UGC", naac: "A", established: "2020", highlights: "Established by the renowned RV Group; focuses on interdisciplinary & innovation-driven education; growing research ecosystem." },
+  { name: "Harsha Institutions (Harsha Group of Institutions)", location: "Bengaluru, Karnataka", type: "Private College", affiliation: "VTU / Bangalore University", naac: "B++", established: "2007", highlights: "Offers engineering, management & computer science programs; industry-linked curriculum; growing placement track record." },
+  // Tamil Nadu
+  { name: "Saveetha University (Saveetha Institute of Medical and Technical Sciences)", location: "Chennai, Tamil Nadu", type: "Deemed University", affiliation: "UGC / NAAC", naac: "A+", established: "1988", highlights: "NAAC A+ accredited; strong dental, medical & engineering schools; NIRF ranked; extensive research publications." },
+  { name: "Kalasalingam Academy of Research and Education (Kalasalingam University)", location: "Krishnankoil, Virudhunagar, Tamil Nadu", type: "Deemed University", affiliation: "UGC", naac: "A+", established: "1984", highlights: "NAAC A+ accredited; NIRF ranked; strong research & innovation focus; good placement record in core engineering." },
+  { name: "Hindustan University (Hindustan Institute of Technology and Science)", location: "Chennai, Tamil Nadu", type: "Deemed University", affiliation: "UGC", naac: "A", established: "1985", highlights: "NAAC A accredited; aviation, aeronautical & engineering programs; large campus; industry collaborations." },
+  { name: "VIT Vellore University", location: "Vellore, Tamil Nadu", type: "Deemed University", affiliation: "UGC", naac: "A++", established: "1984", highlights: "NAAC A++ accredited; NIRF Top 10 engineering; exceptional placement record; global university collaborations." },
+  { name: "Amrita Vishwa Vidyapeetham (Amrita University)", location: "Multiple Campuses – Coimbatore, Chennai, Kochi, Bengaluru", type: "Deemed University", affiliation: "UGC", naac: "A++", established: "2003", highlights: "NAAC A++ rated; NIRF Top 10; strong research focus; multi-campus presence across South India." },
+  { name: "SRM Institute of Science and Technology (SRM University)", location: "Kattankulathur, Chennai, Tamil Nadu", type: "Deemed University", affiliation: "UGC", naac: "A++", established: "1985", highlights: "NAAC A++ accredited; NIRF ranked; 50,000+ students; excellent placements; strong research output." },
+  { name: "Sathyabama Institute of Science and Technology", location: "Chennai, Tamil Nadu", type: "Deemed University", affiliation: "UGC", naac: "A+", established: "1987", highlights: "NAAC A+ accredited; strong aeronautical & engineering programs; satellite research; good placement record." },
+  // Gujarat
+  { name: "Parul University", location: "Vadodara, Gujarat", type: "Private University", affiliation: "UGC", naac: "A+", established: "2015", highlights: "NAAC A+ accredited; one of the largest private universities in Western India; 100+ programs; strong industry linkages." },
+  { name: "Ganpat University", location: "Mehsana, Gujarat", type: "Private University", affiliation: "UGC", naac: "A", established: "2005", highlights: "NAAC A accredited; strong engineering, pharmacy & management programs; research focused; good placement support." },
+  { name: "Marvadi University", location: "Rajkot, Gujarat", type: "Private University", affiliation: "UGC", naac: "B++", established: "2016", highlights: "Emerging university focused on skill-based & industry-oriented education; modern infrastructure." },
+  { name: "P P Savani University", location: "Surat, Gujarat", type: "Private University", affiliation: "UGC", naac: "B+", established: "2018", highlights: "Rapidly growing university; focuses on professional & technical education; industry-integrated curriculum." },
+  { name: "Atmiya University", location: "Rajkot, Gujarat", type: "Private University", affiliation: "UGC", naac: "A", established: "2019", highlights: "NAAC A accredited; value-based education model; strong engineering & management programs." },
+  // Maharashtra
+  { name: "Sandeep University", location: "Nashik, Maharashtra", type: "Private University", affiliation: "UGC", naac: "B++", established: "2015", highlights: "Growing private university; industry-oriented programs; strong focus on entrepreneurship & skill development." },
+  { name: "Sanjay Ghodawat University", location: "Kolhapur, Maharashtra", type: "Private University", affiliation: "UGC", naac: "A", established: "2017", highlights: "NAAC A accredited; aviation & engineering focus; strong infrastructure; growing placement record." },
+  // Uttarakhand
+  { name: "Uttaranchal University", location: "Dehradun, Uttarakhand", type: "Private University", affiliation: "UGC", naac: "A+", established: "2012", highlights: "NAAC A+ accredited; wide range of technical & management programs; scenic campus; growing industry connections." },
+  // Delhi NCR
+  { name: "Sharda University", location: "Greater Noida, Uttar Pradesh", type: "Private University", affiliation: "UGC", naac: "A+", established: "2009", highlights: "NAAC A+ accredited; 2 campuses; large international student base; strong engineering, law & medical programs." },
+  // Andhra Pradesh
+  { name: "NIAT – National Institute of Advanced Technologies", location: "Guntur / Vijayawada, Andhra Pradesh", type: "Private Institute", affiliation: "JNTUK / AP State", naac: "N/A", established: "2008", highlights: "Focused on technical skill development & job-oriented training; strong industry partnerships in AP region." }
 ];
+
+const collegeDetails = {
+  "Bangalore Institute of Technology (BIT)": { affiliation: "Visvesvaraya Technological University (VTU)", naac: "A", established: "1979", highlights: "One of Bangalore's oldest & most reputed govt-aided engineering colleges; autonomous status; strong alumni network across top companies." },
+  "BMS College of Engineering (BMSCE)": { affiliation: "VTU (Autonomous)", naac: "A+", established: "1946", highlights: "One of the oldest private engineering colleges in India; NBA accredited programs; excellent placement record; strong industry links." },
+  "BMS Institute of Technology and Management (BMSIT)": { affiliation: "VTU (Autonomous)", naac: "A", established: "2002", highlights: "NBA accredited programs; strong industry connections; consistent placement performance across CSE, ECE & ME branches." },
+  "CMR Institute of Technology (CMRIT) Bangalore": { affiliation: "VTU (Autonomous)", naac: "A+", established: "2000", highlights: "NAAC A+ accredited; NBA accredited B.Tech programs; known for software engineering placements; autonomous status." },
+  "Jain University (Deemed to be University)": { affiliation: "UGC Recognized Deemed University", naac: "A++", established: "1990", highlights: "NAAC A++ rated; NIRF ranked; multiple campuses in Bangalore; strong research output; programs in Engineering, Management, Commerce & Sciences." },
+  "PES University": { affiliation: "UGC Recognized Private University", naac: "A+", established: "2013", highlights: "Known for top CS/IT placements; Google, Amazon, Microsoft recruiters; NAAC A+ accredited; strong research & innovation culture." },
+  "M S Ramaiah University of Applied Sciences (Ramaiah University)": { affiliation: "UGC Recognized Private University", naac: "A+", established: "2013", highlights: "Legacy Ramaiah Group institution; NAAC A+ rated; strong engineering, medical & management programs; excellent placement record." },
+  "Alliance University": { affiliation: "UGC Recognized Private University", naac: "A", established: "2010", highlights: "NAAC A accredited; internationally acclaimed MBA program; Law school; strong alumni network; international university collaborations." },
+  "Presidency University Bangalore": { affiliation: "UGC Recognized Private University", naac: "A", established: "2013", highlights: "NAAC A accredited; modern campus in Yelahanka, North Bangalore; skill-based education model; growing industry linkages." },
+  "RV University": { affiliation: "UGC Recognized Private University", naac: "A", established: "2020", highlights: "Part of the renowned RV Group of Institutions; interdisciplinary programs; innovation-driven pedagogy; rapidly growing research ecosystem." },
+  "Harsha Institutions (Harsha Group of Institutions)": { affiliation: "VTU / Bangalore University", naac: "B++", established: "2007", highlights: "Offers B.Tech, BBA, MBA & BCA programs; industry-linked curriculum; placement support for students; affordable quality education." },
+  "Saveetha University (Saveetha Institute of Medical and Technical Sciences)": { affiliation: "UGC Deemed University", naac: "A+", established: "1988", highlights: "NAAC A+ accredited; top-ranked dental college in India; strong engineering & technology programs; prolific research publications." },
+  "Kalasalingam Academy of Research and Education (Kalasalingam University)": { affiliation: "UGC Deemed University", naac: "A+", established: "1984", highlights: "NAAC A+ accredited; NIRF ranked; excellent research culture; strong placements in core engineering; campus in Virudhunagar district." },
+  "Hindustan University (Hindustan Institute of Technology and Science)": { affiliation: "UGC Deemed University", naac: "A", established: "1985", highlights: "NAAC A accredited; unique aeronautical & aviation programs; large residential campus near Chennai; good industry tie-ups." },
+  "Parul University": { affiliation: "UGC Recognized Private University", naac: "A+", established: "2015", highlights: "NAAC A+ accredited; one of the largest private universities in Western India; 100+ programs across engineering, medicine, law & management." },
+  "Ganpat University": { affiliation: "UGC Recognized Private University", naac: "A", established: "2005", highlights: "NAAC A accredited; strong engineering, pharmacy & management schools; research parks; good placement support for students." },
+  "Sharda University": { affiliation: "UGC Recognized Private University", naac: "A+", established: "2009", highlights: "NAAC A+ accredited; 2 campuses in Greater Noida; 33,000+ students including large international population; strong medical & law programs." },
+  "Uttaranchal University": { affiliation: "UGC Recognized Private University", naac: "A+", established: "2012", highlights: "NAAC A+ accredited; scenic Dehradun campus; technical, management, law & paramedical programs; growing industry partnerships." },
+  "NIAT – National Institute of Advanced Technologies": { affiliation: "JNTUK / AP State Approved", naac: "Applied", established: "2008", highlights: "Focused on job-oriented technical training; strong industry partnerships; placement support in AP; B.Tech & Diploma programs." }
+};
 
 const programSpeciality = {
   btech: "B.Tech Engineering Programs",
@@ -492,34 +508,43 @@ const programLabels = {
 };
 
 let currentProgram = null;
-let currentTab     = 'tg';
+let currentTab = 'tg';
 
-// ===== OPEN COLLEGE MODAL =====
+// ===== LOCALSTORAGE HELPERS =====
+function getRegisteredUser() {
+  try { return JSON.parse(localStorage.getItem('srimedhа_user') || 'null'); } catch(e) { return null; }
+}
+function saveRegisteredUser(name, phone, email) {
+  try { localStorage.setItem('srimedhа_user', JSON.stringify({ name, phone, email })); } catch(e) {}
+}
+
 function openCollegeModal(key) {
   currentProgram = key;
-  currentTab     = 'tg';
-
+  currentTab = 'tg';
   document.getElementById('modal-program-title').textContent = programLabels[key] + " Colleges";
-  document.getElementById('lead-program-name').textContent   = programLabels[key];
-
-  // Always start at Step 1
-  document.getElementById('lead-gate').style.display         = 'block';
-  document.getElementById('college-list-view').style.display = 'none';
+  document.getElementById('lead-program-name').textContent = programLabels[key];
   document.getElementById('college-detail-view').classList.remove('active');
-
-  // Clear inputs
-  ['lead-name','lead-phone','lead-email'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('lead-gate-status').textContent = '';
-  const btn = document.getElementById('lead-gate-btn');
-  btn.textContent = 'View Colleges Now →'; btn.disabled = false;
-
   document.querySelectorAll('.college-tab').forEach((t,i) => t.classList.toggle('active', i === 0));
+
+  const existingUser = getRegisteredUser();
+  if (existingUser) {
+    // Already registered — skip the form, go straight to college list
+    showCollegeListView();
+  } else {
+    // First time — show the form
+    document.getElementById('lead-gate').style.display = 'block';
+    document.getElementById('college-list-view').style.display = 'none';
+    ['lead-name','lead-phone','lead-email'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('lead-gate-status').textContent = '';
+    const btn = document.getElementById('lead-gate-btn');
+    btn.textContent = 'View Colleges Now →'; btn.disabled = false;
+  }
+
   document.getElementById('collegeModal').classList.add('active');
 }
 
 function closeCollegeModal() { document.getElementById('collegeModal').classList.remove('active'); }
 
-// ===== LEAD GATE SUBMIT =====
 async function submitLeadGate() {
   const name  = document.getElementById('lead-name').value.trim();
   const phone = document.getElementById('lead-phone').value.trim();
@@ -534,34 +559,53 @@ async function submitLeadGate() {
 
   btn.textContent = "Saving..."; btn.disabled = true;
 
+  // Check localStorage first — if phone matches saved user, skip DB entirely
+  const savedUser = getRegisteredUser();
+  if (savedUser && savedUser.phone === phone) {
+    saveRegisteredUser(name, phone, email);
+    btn.textContent = 'View Colleges Now →'; btn.disabled = false;
+    showCollegeListView();
+    return;
+  }
+
+  // Use raw fetch instead of supabaseClient to avoid DataCloneError bug
   const enquiry = {
     name, phone, email,
-    grade:   "",
+    grade: "",
     program: programLabels[currentProgram] + " – College List Request",
     message: "User requested college list for " + programLabels[currentProgram]
   };
 
-  const { error } = await supabaseClient.from("enquiries").insert([enquiry]);
-
-  btn.textContent = "View Colleges Now →"; btn.disabled = false;
-
-  if (error) {
-    st.textContent = "Submission failed. Please try again.";
-    st.style.color = "red"; return;
+  try {
+    await fetch(SUPABASE_URL + "/rest/v1/enquiries", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": SUPABASE_ANON_KEY,
+        "Authorization": "Bearer " + SUPABASE_ANON_KEY,
+        "Prefer": "return=minimal"
+      },
+      body: JSON.stringify(enquiry)
+    });
+  } catch (e) {
+    // Network error — still let user through, data not critical to UX
+    console.warn("Insert skipped:", e.message);
   }
 
-  // WhatsApp notification
- // const msg = `College List Request – Sri Medha\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email || 'N/A'}\nProgram: ${programLabels[currentProgram]}`;
-//  window.open(`https://wa.me/919391226050?text=${encodeURIComponent(msg)}`, "_blank");
+  btn.textContent = 'View Colleges Now →'; btn.disabled = false;
 
-  // Reveal college list
-  document.getElementById('lead-gate').style.display         = 'none';
+  // Always save to localStorage and show colleges regardless of DB outcome
+  saveRegisteredUser(name, phone, email);
+  showCollegeListView();
+}
+
+function showCollegeListView() {
+  document.getElementById('lead-gate').style.display = 'none';
   document.getElementById('college-list-view').style.display = 'block';
-  document.getElementById('collegeSearch').value             = '';
+  document.getElementById('collegeSearch').value = '';
   renderCollegeList('tg');
 }
 
-// ===== TAB SWITCH =====
 function switchTab(tab, btn) {
   currentTab = tab;
   document.querySelectorAll('.college-tab').forEach(t => t.classList.remove('active'));
@@ -571,7 +615,6 @@ function switchTab(tab, btn) {
   renderCollegeList(tab);
 }
 
-// ===== RENDER COLLEGE LIST =====
 function renderCollegeList(tab) {
   const colleges = tab === 'tg' ? tgColleges : otherColleges;
   const list = document.getElementById('college-list');
@@ -579,69 +622,49 @@ function renderCollegeList(tab) {
   colleges.forEach((c, i) => {
     const item = document.createElement('div');
     item.className = 'college-item';
-    item.innerHTML = `
-      <div>
-        <span>${c.name}</span><br>
-        <small>${c.location} &nbsp;•&nbsp; ${c.type}</small>
-      </div>
-      <span class="c-arrow">›</span>`;
+    item.innerHTML = `<div><span>${c.name}</span><br><small>${c.location} &nbsp;•&nbsp; ${c.type}</small></div><span class="c-arrow">›</span>`;
     item.onclick = () => showCollegeDetail(i);
     list.appendChild(item);
   });
 }
 
-// ===== SEARCH =====
 function searchColleges() {
-  const q        = document.getElementById('collegeSearch').value.toLowerCase().trim();
+  const q = document.getElementById('collegeSearch').value.toLowerCase().trim();
   const colleges = currentTab === 'tg' ? tgColleges : otherColleges;
-  const list     = document.getElementById('college-list');
+  const list = document.getElementById('college-list');
   list.innerHTML = '';
-
   if (!q) { renderCollegeList(currentTab); return; }
-
-  const filtered = colleges.filter(c =>
-    c.name.toLowerCase().includes(q) ||
-    c.location.toLowerCase().includes(q) ||
-    c.type.toLowerCase().includes(q)
-  );
-
-  if (!filtered.length) {
-    list.innerHTML = `<div style="padding:1rem;text-align:center;color:var(--muted);font-weight:500;">No colleges found for "<em>${q}</em>"</div>`;
-    return;
-  }
-
+  const filtered = colleges.filter(c => c.name.toLowerCase().includes(q) || c.location.toLowerCase().includes(q) || c.type.toLowerCase().includes(q));
+  if (!filtered.length) { list.innerHTML = `<div style="padding:1rem;text-align:center;color:var(--muted);font-weight:500;">No colleges found for "<em>${q}</em>"</div>`; return; }
   filtered.forEach(college => {
     const origIdx = colleges.findIndex(c => c.name === college.name);
     const item = document.createElement('div');
     item.className = 'college-item';
-    item.innerHTML = `
-      <div>
-        <span>${college.name}</span><br>
-        <small>${college.location} &nbsp;•&nbsp; ${college.type}</small>
-      </div>
-      <span class="c-arrow">›</span>`;
+    item.innerHTML = `<div><span>${college.name}</span><br><small>${college.location} &nbsp;•&nbsp; ${college.type}</small></div><span class="c-arrow">›</span>`;
     item.onclick = () => showCollegeDetail(origIdx);
     list.appendChild(item);
   });
 }
 
-// ===== COLLEGE DETAIL =====
 function showCollegeDetail(index) {
   const colleges = currentTab === 'tg' ? tgColleges : otherColleges;
   const c = colleges[index];
   document.getElementById('detail-college-name').textContent = c.name;
+  const extra = collegeDetails[c.name] || {};
   const rows = [
-    ["Location",         c.location],
+    ["Location", c.location],
     ["Institution Type", c.type],
-    ["Program Offered",  programSpeciality[currentProgram]],
-    ["Affiliation",      currentTab === 'tg' ? "JNTUH / Osmania University / Autonomous" : "Respective State University / UGC"],
-    ["Counselling",      "Free Career Counselling Available"],
-    ["Loan Assistance",  "Education Loan Assistance Available"],
-    ["Contact Us",       "+91 8099287734"],
-    ["Email",            "srimedhaconsultant@gmail.com"]
+    ["Program Offered", programSpeciality[currentProgram]],
+    ["Affiliation", extra.affiliation || (currentTab === 'tg' ? "JNTUH / Osmania University / Autonomous" : "Respective State University / UGC")],
+    ["NAAC Grade", extra.naac || "Accredited"],
+    ["Established", extra.established || "–"],
+    ["Key Highlights", extra.highlights || "Top ranked institution with excellent academic record"],
+    ["Counselling", "Free Career Counselling Available"],
+    ["Loan Assistance", "Education Loan Assistance Available"],
+    ["Contact Us", "+91 8099287734"],
+    ["Email", "srimedhaconsultant@gmail.com"]
   ];
-  document.getElementById('detail-table').innerHTML =
-    rows.map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+  document.getElementById('detail-table').innerHTML = rows.map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
   document.getElementById('college-list-view').style.display = 'none';
   document.getElementById('college-detail-view').classList.add('active');
 }
@@ -651,7 +674,6 @@ function showCollegeList() {
   document.getElementById('college-list-view').style.display = 'block';
 }
 
-// ===== ABROAD DATA =====
 const abroadData = {
   usa: {
     flag:"🇺🇸", title:"Study in USA", subtitle:"World's No.1 destination for higher education",
@@ -692,7 +714,7 @@ const abroadData = {
 
 function openAbroadModal(key) {
   const d = abroadData[key];
-  document.getElementById('abroad-modal-title').textContent    = d.flag + " " + d.title;
+  document.getElementById('abroad-modal-title').textContent = d.flag + " " + d.title;
   document.getElementById('abroad-modal-subtitle').textContent = d.subtitle;
   document.getElementById('abroad-info-grid').innerHTML = `
     <div class="info-box"><h5>🏛️ Top Universities</h5><ul>${d.universities.map(u=>`<li>${u}</li>`).join('')}</ul></div>
@@ -703,7 +725,6 @@ function openAbroadModal(key) {
 }
 function closeAbroadModal() { document.getElementById('abroadModal').classList.remove('active'); }
 
-// Backdrop close
 document.getElementById('collegeModal').addEventListener('click', e => { if (e.target === document.getElementById('collegeModal')) closeCollegeModal(); });
 document.getElementById('abroadModal').addEventListener('click',  e => { if (e.target === document.getElementById('abroadModal'))  closeAbroadModal(); });
 document.getElementById('quickPopup').addEventListener('click',   e => { if (e.target === document.getElementById('quickPopup'))   closePopup(); });
