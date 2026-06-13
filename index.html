@@ -425,7 +425,8 @@ document.getElementById("enquiry-form").addEventListener("submit", async (e) => 
     st.textContent = "Thank you! Your enquiry has been submitted."; st.style.color = "green";
     e.target.reset();
   } catch (err) {
-    st.textContent = "Error submitting. Please call us at +91 8099287734"; st.style.color = "red";
+    st.textContent = "Error submitting. Please call us at +91 8099287734 or +91 9553323654";
+    st.style.color = "red";
     console.warn("Enquiry form error:", err.message);
   }
 });
@@ -808,11 +809,11 @@ function closePhonePopup() {
 }
 async function copyPhone() {
   try {
-    await navigator.clipboard.writeText('+918099287734');
+    await navigator.clipboard.writeText('+918099287734, +919553323654');
   } catch(e) {
     // Fallback for older browsers
     const el = document.createElement('textarea');
-    el.value = '+918099287734';
+    el.value = '+918099287734, +919553323654';
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
@@ -832,7 +833,7 @@ async function copyPhone() {
     <h4>Sri Medha Educational Services</h4>
     <div class="phone-num">+91 8099287734, +91 9553323654</div>
     <div class="phone-actions">
-      <button class="phone-btn-call" onclick="window.location.href='tel:+91 8099287734, +91 9553323654'">
+      <button class="phone-btn-call" onclick="window.location.href='tel:+918099287734'">
         📞 Call Now
       </button>
       <button class="phone-btn-copy" onclick="copyPhone()">
