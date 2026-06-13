@@ -265,7 +265,7 @@
     <p class="section-intro">Fill out the enquiry form and our counsellor will contact you shortly.</p>
     <div class="contact-grid">
       <div class="contact-info">
-        <p><strong>Phone:</strong> <span class="clickable-phone" onclick="openPhonePopup()">+91 8099287734</span></p>
+        <p><strong>Phone:</strong> <span class="clickable-phone" onclick="openPhonePopup()">+91 8099287734, +91 9553323654</span></p>
         <p><strong>Email:</strong> srimedhaconsultant@gmail.com</p>
         <p><strong>Location:</strong> Hyderabad, Telangana</p>
       </div>
@@ -377,7 +377,7 @@ async function copyPhone() {
   } catch(e) {
     // Fallback for older browsers
     const el = document.createElement('textarea');
-    el.value = '+918099287734';
+    el.value = '+91 8099287734, +91 9553323654';
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
@@ -830,9 +830,9 @@ async function copyPhone() {
 <div class="phone-popup-overlay" id="phonePopup" onclick="if(event.target===this)closePhonePopup()">
   <div class="phone-popup">
     <h4>Sri Medha Educational Services</h4>
-    <div class="phone-num">+91 8099287734</div>
+    <div class="phone-num">+91 8099287734, +91 9553323654</div>
     <div class="phone-actions">
-      <button class="phone-btn-call" onclick="window.location.href='tel:+918099287734'">
+      <button class="phone-btn-call" onclick="window.location.href='tel:+91 8099287734, +91 9553323654'">
         📞 Call Now
       </button>
       <button class="phone-btn-copy" onclick="copyPhone()">
