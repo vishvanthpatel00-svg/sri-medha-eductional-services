@@ -19,13 +19,16 @@
 
     /* TICKER */
     .ticker-wrap { position: fixed; top: 0; left: 0; width: 100%; height: 34px; background: linear-gradient(90deg, #C9A84C, #b8932e, #C9A84C); z-index: 1100; overflow: hidden; display: flex; align-items: center; }
-    .ticker-track { display: flex; white-space: nowrap; animation: ticker-scroll 12s linear infinite; }
+    .ticker-track { display: flex; white-space: nowrap; animation: ticker-scroll 8s linear infinite; }
     .ticker-track:hover { animation-play-state: paused; }
     .ticker-item { font-size: 0.82rem; font-weight: 700; color: #0B1426; padding: 0 3rem; letter-spacing: 0.04em; text-transform: uppercase; }
     .ticker-item a { color: #0B1426; text-decoration: none; }
     .ticker-item a:hover { text-decoration: underline; }
     .ticker-dot { color: #0B1426; font-size: 1.1rem; padding: 0 0.5rem; }
-    @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    @keyframes ticker-scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+    }
 
     nav { position: fixed; top: 34px; width: 100%; background: rgba(11,20,38,0.97); padding: 0 3%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; height: 94px; }
     .logo { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; }
