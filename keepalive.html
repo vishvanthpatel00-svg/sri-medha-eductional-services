@@ -1,53 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supabase Keep Alive</title>
+<script>
+const SUPABASE_URL = "https://lrltkwphwmxexerteplr.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxybHRrd3Bod214ZXhlcnRlcGxyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDAxNTEsImV4cCI6MjA5NDE3NjE1MX0.svyH3kZpD6Me3FjYpwoEsFT6_-g1Bq303_9OjBvr79c";
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</head>
-<body>
+const supabase = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY
+);
 
-    <h1>Supabase Keep Alive</h1>
-    <p id="status">Checking database...</p>
+async function keepAlive() {
+  const status = document.getElementById("status");
 
-    <script>
-        const SUPABASE_URL = "https://lrltkwphwmxexerteplr.supabase.co";
+  try {
+    const { data, error } = await supabase
+      .from("enquiries")
+      .select("*")
+      .limit(1);
 
-        const SUPABASE_ANON_KEY =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxybHRrd3Bod214ZXhlcnRlcGxyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDAxNTEsImV4cCI6MjA5NDE3NjE1MX0.svyH3kZpD6Me3FjYpwoEsFT6_-g1Bq303_9OjBvr79c";
+    if (error) {
+      status.innerText = "Error: " + error.message;
+    } else {
+      status.innerText = "Supabase is active ✅";
+    }
+  } catch (err) {
+    status.innerText = "Unexpected error";
+  }
+}
 
-        const supabase = window.supabase.createClient(
-            SUPABASE_URL,
-            SUPABASE_ANON_KEY
-        );
-
-        async function keepAlive() {
-            try {
-                const { data, error } = await supabase
-                    .from("enquiries")
-                    .select("*")
-                    .limit(1);
-
-                if (error) {
-                    console.error("Error:", error);
-                    document.getElementById("status").innerText =
-                        "Error connecting to Supabase";
-                } else {
-                    console.log("Supabase is active", data);
-                    document.getElementById("status").innerText =
-                        "Supabase is active ✅";
-                }
-            } catch (err) {
-                console.error(err);
-                document.getElementById("status").innerText =
-                    "Unexpected error";
-            }
-        }
-
-        keepAlive();
-    </script>
-
-</body>
-</html>
+keepAlive();
+</script>
