@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keep Alive</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <h1>Supabase Keep Alive</h1>
+
+    <script>
+        const SUPABASE_URL = "https://lrltkwphwmxexerteplr.supabase.co";
+        const SUPABASE_ANON_KEY = "";
+
+        const supabase = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_ANON_KEY
+        );
+
+        async function keepAlive() {
+            const { data, error } = await supabase
+                .from("YOUR_TABLE_NAME")
+                .select("*")
+                .limit(1);
+
+            console.log(data, error);
+        }
+
+        keepAlive();
+    </script>
+</body>
+</html>
